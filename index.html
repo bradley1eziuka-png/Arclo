@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arclo — Web Design for Midwest Businesses</title>
+  <meta name="description" content="Arclo builds clean, high-converting websites for small and medium businesses across the Midwest." />
+  <meta property="og:title" content="Arclo — Web Design for Midwest Businesses" />
+  <meta property="og:description" content="Clean, high-converting websites for Midwest businesses." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'sans-serif'],
+            sans: ['"Instrument Sans"', 'sans-serif'],
+          },
+          colors: {
+            'ink':    '#0C0C0B',
+            'canvas': '#F5F5F0',
+            'edge':   '#E2E2DC',
+            'ghost':  '#8C8C85',
+          },
+          letterSpacing: {
+            'tightest': '-0.04em',
+            'tighter':  '-0.025em',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    /* Nav */
+    .nav-link { transition: opacity 0.18s ease; }
+    .nav-link:hover { opacity: 0.5; }
+
+    .btn-primary {
+      transition: background-color 0.18s ease, color 0.18s ease;
+    }
+    .btn-primary:hover { background-color: #2a2a28; }
+
+    .btn-outline {
+      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-outline:hover {
+      background-color: #0C0C0B;
+      color: #fff;
+    }
+
+    /* Work cards */
+    .card-live {
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card-live:hover {
+      border-color: #0C0C0B;
+      box-shadow: 0 4px 20px rgba(12, 12, 11, 0.08);
+    }
+
+    /* Services */
+    .service-col {
+      transition: background-color 0.18s ease;
+    }
+    .service-col:hover { background-color: #F5F5F0; }
+
+    /* Inputs */
+    input, textarea {
+      transition: border-color 0.18s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #0C0C0B;
+    }
+
+    /* Submit */
+    .btn-submit {
+      transition: background-color 0.18s ease;
+    }
+    .btn-submit:hover { background-color: #2a2a28; }
+
+    /* Visit link */
+    .visit-link {
+      transition: opacity 0.18s ease;
+    }
+    .visit-link:hover { opacity: 0.5; }
+  </style>
+</head>
+
+<body class="bg-white text-ink font-sans antialiased">
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white border-b border-edge">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+
+      <a href="#" class="flex items-center gap-2.5 nav-link" aria-label="Arclo home">
+        <img src="Brand%20assets/Arclo%20logo.png" alt="" class="h-16 w-auto" />
+        <span class="font-display font-semibold text-[1.05rem] tracking-tightest">Arclo</span>
+      </a>
+
+      <a href="#contact"
+         class="btn-primary bg-ink text-white font-display font-semibold text-sm px-5 py-2 rounded-[3px]">
+        Get a Quote
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden pt-16">
+
+    <!-- Watermark logo mark -->
+    <img src="Brand%20assets/Arclo%20logo.png" alt=""
+         class="absolute right-0 top-1/2 -translate-y-1/2 w-[340px] opacity-[0.07] pointer-events-none select-none translate-x-8"
+         aria-hidden="true" />
+
+    <div class="max-w-5xl mx-auto px-6 pt-20 pb-16 w-full relative">
+
+      <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-8">
+        Web Design &amp; Development &mdash; Midwest
+      </p>
+
+      <h1 class="font-display font-bold text-[2.75rem] sm:text-6xl md:text-7xl leading-[1.02] tracking-tightest text-ink max-w-3xl mb-6">
+        Clean, high-converting websites for Midwest businesses.
+      </h1>
+
+      <p class="text-ghost text-lg font-sans leading-relaxed max-w-lg mb-10">
+        Arclo builds websites that make small and medium businesses look sharp and bring in more customers.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#contact"
+           class="btn-primary inline-block bg-ink text-white font-display font-semibold text-sm px-7 py-3.5 rounded-[3px] text-center">
+          Get a Free Quote
+        </a>
+        <a href="#work"
+           class="btn-outline inline-block border border-edge text-ink font-display font-semibold text-sm px-7 py-3.5 rounded-[3px] text-center">
+          See Our Work
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       WORK
+  ═══════════════════════════════════════════ -->
+  <section id="work" class="py-24 bg-canvas">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="mb-12">
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Our Work</h2>
+        <p class="text-ghost text-sm">Sites we've built for real businesses.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <!-- Fenixx Technologies — Live -->
+        <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
+          <div class="flex items-start justify-between">
+            <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">
+              Live
+            </span>
+          </div>
+
+          <div class="mt-auto pt-10">
+            <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">Fenixx Technologies</h3>
+            <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-5">B2B Manufacturing</p>
+            <a href="https://www.fenixxtech.com/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
+              Visit site
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- CGC — Custom Gaming Consoles -->
+        <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
+          <div class="flex items-start justify-between">
+            <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">
+              In Progress
+            </span>
+          </div>
+
+          <div class="mt-auto pt-10">
+            <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">CGC Custom Gaming Consoles</h3>
+            <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-5">E-Commerce / Consumer</p>
+            <a href="https://cgc-gamma.vercel.app/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
+              Visit site
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- In Progress placeholder -->
+        <div class="bg-canvas border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
+          <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-ghost bg-white px-2.5 py-1 rounded-[2px] border border-edge w-fit">
+            In Progress
+          </span>
+
+          <div class="mt-auto pt-10">
+            <h3 class="font-display font-bold text-2xl tracking-tightest text-ink mb-2">Currently building.</h3>
+            <p class="text-ghost text-sm font-sans leading-relaxed">More work coming soon.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIAL
+  ═══════════════════════════════════════════ -->
+  <section class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="max-w-2xl">
+
+        <div class="w-8 h-[2px] bg-ink mb-8"></div>
+
+        <blockquote class="font-display font-medium text-2xl md:text-3xl leading-[1.25] tracking-tighter text-ink mb-8">
+          "He possesses an innovative eye for detail, perfectly capturing our technical precision in a sleek, modern platform. We highly recommend his fresh creativity and flawless execution."
+        </blockquote>
+
+        <cite class="not-italic flex items-center gap-3">
+          <span class="font-sans font-semibold text-sm text-ink">Bill Hayter</span>
+          <span class="text-edge">|</span>
+          <span class="font-sans text-sm text-ghost">Vice President, Fenixx Technologies, LLC</span>
+        </cite>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES
+  ═══════════════════════════════════════════ -->
+  <section id="services" class="py-24 bg-canvas border-y border-edge">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="mb-12">
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">What We Do</h2>
+        <p class="text-ghost text-sm">Web design, SEO, and ongoing support for businesses.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 border border-edge rounded-[4px] overflow-hidden">
+
+        <!-- Web Design -->
+        <div class="service-col bg-white p-9 md:border-r border-b md:border-b-0 border-edge">
+          <div class="w-9 h-9 border border-edge rounded-[3px] flex items-center justify-center mb-7 bg-canvas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="3" rx="2"/>
+              <line x1="8" x2="16" y1="21" y2="21"/>
+              <line x1="12" x2="12" y1="17" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg tracking-tightest mb-3">Web Design</h3>
+          <p class="text-ghost text-sm leading-relaxed">
+            Custom sites built to represent your business and move visitors toward action.
+          </p>
+        </div>
+
+        <!-- SEO -->
+        <div class="service-col bg-white p-9 md:border-r border-b md:border-b-0 border-edge">
+          <div class="w-9 h-9 border border-edge rounded-[3px] flex items-center justify-center mb-7 bg-canvas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg tracking-tightest mb-3">SEO</h3>
+          <p class="text-ghost text-sm leading-relaxed">
+            Structured to rank. We build with search in mind so customers find you first.
+          </p>
+        </div>
+
+        <!-- Maintenance -->
+        <div class="service-col bg-white p-9">
+          <div class="w-9 h-9 border border-edge rounded-[3px] flex items-center justify-center mb-7 bg-canvas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg tracking-tightest mb-3">Maintenance</h3>
+          <p class="text-ghost text-sm leading-relaxed">
+            We keep your site fast, secure, and current so you can focus on the business.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="contact" class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="mb-10">
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Get a Quote</h2>
+        <p class="text-ghost text-sm">Tell us about your project. We respond within one business day.</p>
+      </div>
+
+        <form action="https://formspree.io/f/xqejaybe" method="POST" class="space-y-5 max-w-lg">
+
+          <div>
+            <label for="name" class="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-ghost mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Your name"
+              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-edge"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-ghost mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="you@company.com"
+              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-edge"
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-ghost mb-2">
+              Phone <span class="normal-case font-normal tracking-normal text-ghost/70">(optional)</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="(555) 555-5555"
+              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-edge"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-ghost mb-2">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Tell us about your business and what you need."
+              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-edge resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="btn-submit w-full bg-ink text-white font-display font-semibold text-sm py-3.5 rounded-[3px]">
+            Send Message
+          </button>
+
+        </form>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="border-t border-edge py-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-2.5 nav-link" aria-label="Arclo home">
+        <img src="Brand%20assets/Arclo%20logo.png" alt="" class="h-7 w-auto opacity-70" />
+        <span class="font-display font-semibold text-sm tracking-tightest">Arclo</span>
+      </a>
+      <p class="text-ghost text-xs font-sans">&copy; 2025 Arclo. Web design for the Midwest.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
