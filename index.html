@@ -431,7 +431,59 @@
     </div>
   </footer>
 
+  <script>
+    /* Auto-crop the logo PNG to just the mark, then set as favicon */
+    (function () {
+      var img = new Image();
+      img.onload = function () {
+        try {
+          /* Draw full image onto a temp canvas to read pixels */
+          var tmp = document.createElement('canvas');
+          tmp.width  = img.naturalWidth;
+          tmp.height = img.naturalHeight;
+          var tCtx = tmp.getContext('2d');
+          tCtx.drawImage(img, 0, 0);
 
+          var px = tCtx.getImageData(0, 0, tmp.width, tmp.height).data;
+          var minX = tmp.width, maxX = 0, minY = tmp.height, maxY = 0;
+
+          for (var y = 0; y < tmp.height; y++) {
+            for (var x = 0; x < tmp.width; x++) {
+              var i = (y * tmp.width + x) * 4;
+              /* treat pixels darker than 200/255 as part of the mark */
+              if (px[i] < 200 && px[i + 1] < 200 && px[i + 2] < 200) {
+                if (x < minX) minX = x;
+                if (x > maxX) maxX = x;
+                if (y < minY) minY = y;
+                if (y > maxY) maxY = y;
+              }
+            }
+          }
+
+          /* Add 15% padding around the detected mark */
+          var pw = (maxX - minX) * 0.15;
+          var ph = (maxY - minY) * 0.15;
+          minX = Math.max(0, Math.floor(minX - pw));
+          minY = Math.max(0, Math.floor(minY - ph));
+          maxX = Math.min(tmp.width,  Math.ceil(maxX + pw));
+          maxY = Math.min(tmp.height, Math.ceil(maxY + ph));
+
+          /* Render cropped mark onto 64×64 favicon canvas */
+          var fav = document.createElement('canvas');
+          fav.width = fav.height = 64;
+          fav.getContext('2d').drawImage(
+            img,
+            minX, minY, maxX - minX, maxY - minY,
+            0, 0, 64, 64
+          );
+
+          var link = document.querySelector("link[rel='icon']");
+          if (link) link.href = fav.toDataURL('image/png');
+        } catch (e) { /* CORS or canvas error — fall back to original PNG */ }
+      };
+      img.src = 'Brand%20assets/Arclo%20logo.png';
+    })();
+  </script>
 
 </body>
 </html>
