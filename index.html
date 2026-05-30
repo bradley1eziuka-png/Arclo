@@ -504,52 +504,131 @@
         <p class="text-ghost text-sm">We don't just build websites. We build your best salesperson.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 border border-edge rounded-[4px] overflow-hidden">
+      <!-- Desktop: connected three-column grid -->
+      <div class="hidden md:grid md:grid-cols-3 border border-edge rounded-[4px] overflow-hidden">
 
         <!-- Web Design -->
-        <div class="service-col bg-white p-6 md:border-r border-b md:border-b-0 border-edge">
+        <div class="service-col bg-white p-6 md:border-r border-edge">
           <div class="w-8 h-8 border border-edge rounded-[3px] flex items-center justify-center mb-4 bg-canvas">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                 stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="14" x="2" y="3" rx="2"/>
-              <line x1="8" x2="16" y1="21" y2="21"/>
-              <line x1="12" x2="12" y1="17" y2="21"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>
             </svg>
           </div>
           <h3 class="font-display font-semibold text-lg tracking-tightest mb-2">Web Design</h3>
-          <p class="text-ghost text-sm leading-relaxed">
-            Custom-built from scratch. No templates. No shortcuts. A site that looks like you mean business.
-          </p>
+          <p class="text-ghost text-sm leading-relaxed">Custom-built from scratch. No templates. No shortcuts. A site that looks like you mean business.</p>
         </div>
 
         <!-- SEO -->
-        <div class="service-col bg-white p-6 md:border-r border-b md:border-b-0 border-edge">
+        <div class="service-col bg-white p-6 md:border-r border-edge">
           <div class="w-8 h-8 border border-edge rounded-[3px] flex items-center justify-center mb-4 bg-canvas">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                 stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/>
-              <path d="m21 21-4.35-4.35"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
           </div>
           <h3 class="font-display font-semibold text-lg tracking-tightest mb-2">SEO</h3>
-          <p class="text-ghost text-sm leading-relaxed">
-            Built to rank from day one. We make sure customers find you before they find your competition.
-          </p>
+          <p class="text-ghost text-sm leading-relaxed">Built to rank from day one. We make sure customers find you before they find your competition.</p>
         </div>
 
         <!-- Maintenance -->
         <div class="service-col bg-white p-6">
           <div class="w-8 h-8 border border-edge rounded-[3px] flex items-center justify-center mb-4 bg-canvas">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                 stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
           <h3 class="font-display font-semibold text-lg tracking-tightest mb-2">Maintenance</h3>
-          <p class="text-ghost text-sm leading-relaxed">
-            We keep your site fast, secure, and current. You focus on running your business. We handle the rest.
-          </p>
+          <p class="text-ghost text-sm leading-relaxed">We keep your site fast, secure, and current. You focus on running your business. We handle the rest.</p>
         </div>
+
+      </div>
+
+      <!-- Mobile: carousel -->
+      <div class="md:hidden">
+
+        <div id="svc-track" class="overflow-hidden">
+          <div id="svc-slides" class="flex transition-transform duration-300 ease-in-out">
+
+            <!-- Web Design -->
+            <div class="w-full flex-shrink-0">
+              <div class="service-col bg-white border border-edge rounded-[4px] p-6">
+                <div class="w-8 h-8 border border-edge rounded-[3px] flex items-center justify-center mb-4 bg-canvas">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>
+                  </svg>
+                </div>
+                <h3 class="font-display font-semibold text-lg tracking-tightest mb-2">Web Design</h3>
+                <p class="text-ghost text-sm leading-relaxed">Custom-built from scratch. No templates. No shortcuts. A site that looks like you mean business.</p>
+              </div>
+            </div>
+
+            <!-- SEO -->
+            <div class="w-full flex-shrink-0">
+              <div class="service-col bg-white border border-edge rounded-[4px] p-6">
+                <div class="w-8 h-8 border border-edge rounded-[3px] flex items-center justify-center mb-4 bg-canvas">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                  </svg>
+                </div>
+                <h3 class="font-display font-semibold text-lg tracking-tightest mb-2">SEO</h3>
+                <p class="text-ghost text-sm leading-relaxed">Built to rank from day one. We make sure customers find you before they find your competition.</p>
+              </div>
+            </div>
+
+            <!-- Maintenance -->
+            <div class="w-full flex-shrink-0">
+              <div class="service-col bg-white border border-edge rounded-[4px] p-6">
+                <div class="w-8 h-8 border border-edge rounded-[3px] flex items-center justify-center mb-4 bg-canvas">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0C0C0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <h3 class="font-display font-semibold text-lg tracking-tightest mb-2">Maintenance</h3>
+                <p class="text-ghost text-sm leading-relaxed">We keep your site fast, secure, and current. You focus on running your business. We handle the rest.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center justify-between mt-6">
+          <button id="svc-prev" aria-label="Previous service"
+                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="flex items-center gap-2">
+            <button class="svc-dot w-2 h-2 rounded-full bg-[#1B2E4B] transition-opacity duration-150" data-index="0" aria-label="Web Design"></button>
+            <button class="svc-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="1" aria-label="SEO"></button>
+            <button class="svc-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="2" aria-label="Maintenance"></button>
+          </div>
+          <button id="svc-next" aria-label="Next service"
+                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <script>
+          (function () {
+            var sCurrent = 0;
+            var sTotal = 3;
+            var sSlides = document.getElementById('svc-slides');
+            var sDots = document.querySelectorAll('.svc-dot');
+
+            function sGoTo(n) {
+              sCurrent = (n + sTotal) % sTotal;
+              sSlides.style.transform = 'translateX(-' + (sCurrent * 100) + '%)';
+              sDots.forEach(function (d, i) {
+                d.style.opacity = i === sCurrent ? '1' : '0.3';
+              });
+            }
+
+            document.getElementById('svc-prev').addEventListener('click', function () { sGoTo(sCurrent - 1); });
+            document.getElementById('svc-next').addEventListener('click', function () { sGoTo(sCurrent + 1); });
+            sDots.forEach(function (d) {
+              d.addEventListener('click', function () { sGoTo(parseInt(d.dataset.index)); });
+            });
+          })();
+        </script>
 
       </div>
     </div>
