@@ -179,76 +179,108 @@
         <p class="text-ghost text-sm">Every website is built to help your business stand out, look established, and leave a stronger first impression.</p>
       </div>
 
-      <!-- Desktop: grid -->
-      <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Desktop: 3-at-a-time carousel -->
+      <div class="hidden md:block">
+        <div class="overflow-hidden" id="dwork-track">
+          <div id="dwork-slides" class="flex transition-transform duration-300 ease-in-out">
 
-        <!-- Fenixx Technologies — Live -->
-        <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
-          <div class="flex items-start justify-between">
-            <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span>
-          </div>
-          <div class="mt-auto pt-10">
-            <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">Fenixx Technologies</h3>
-            <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">B2B Manufacturing</p>
-            <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Crafted to reflect the professionalism and ambition behind the company.</p>
-            <a href="https://www.fenixxtech.com/" target="_blank" rel="noopener noreferrer"
-               class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
-              Visit site
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-            </a>
+            <!-- Fenixx Technologies -->
+            <div class="w-1/3 flex-shrink-0 pr-5">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[360px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="mt-auto">
+                  <img src="Logos/Favicon%202.png" alt="Fenixx Technologies logo" style="max-height:60px;width:auto;object-fit:contain;" class="mb-4" />
+                  <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">Fenixx Technologies</h3>
+                  <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">B2B Manufacturing</p>
+                  <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Crafted to reflect the professionalism and ambition behind the company.</p>
+                  <a href="https://www.fenixxtech.com/" target="_blank" rel="noopener noreferrer" class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- CGC Custom Gaming Consoles -->
+            <div class="w-1/3 flex-shrink-0 pr-5">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[360px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="mt-auto">
+                  <img src="Logos/Logo.jpeg" alt="CGC Custom Gaming Consoles logo" style="max-height:60px;width:auto;object-fit:contain;" class="mb-4 rounded-[4px]" />
+                  <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">CGC Custom Gaming Consoles</h3>
+                  <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">E-Commerce / Consumer</p>
+                  <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Designed to make the brand feel sharper, more trustworthy, and easier to buy from.</p>
+                  <a href="https://customgamingconsoles.com" target="_blank" rel="noopener noreferrer" class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- College Mulch -->
+            <div class="w-1/3 flex-shrink-0 pr-5">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[360px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="mt-auto">
+                  <img src="Logos/Brand%20logo.png" alt="College Mulch logo" style="max-height:60px;width:auto;object-fit:contain;" class="mb-4" />
+                  <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">College Mulch</h3>
+                  <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">Landscaping / Residential</p>
+                  <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Helped a fast-growing student business establish a stronger online presence.</p>
+                  <a href="https://www.collegemulch.org/" target="_blank" rel="noopener noreferrer" class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bump to Baby Doula Services -->
+            <div class="w-1/3 flex-shrink-0">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[360px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="mt-auto">
+                  <img src="Logos/Logo.png" alt="Bump to Baby Doula Services logo" style="max-height:60px;width:auto;object-fit:contain;" class="mb-4" />
+                  <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">Bump to Baby Doula Services</h3>
+                  <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">Healthcare / Services</p>
+                  <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Built a calming, trust-first redesign for a certified high-risk doula, replacing a broken WordPress site with a fast, mobile-friendly platform that actually converts.</p>
+                  <a href="https://www.bumpbabydoula.com" target="_blank" rel="noopener noreferrer" class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- CGC — Custom Gaming Consoles -->
-        <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
-          <div class="flex items-start justify-between">
-            <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span>
+        <!-- Desktop controls -->
+        <div class="flex items-center justify-between mt-6">
+          <button id="dw-prev" aria-label="Previous projects"
+                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="flex items-center gap-2">
+            <button class="dw-dot w-2 h-2 rounded-full bg-[#1B2E4B] transition-opacity duration-150" data-index="0" aria-label="Go to projects 1-3"></button>
+            <button class="dw-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="1" aria-label="Go to project 4"></button>
           </div>
-          <div class="mt-auto pt-10">
-            <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">CGC Custom Gaming Consoles</h3>
-            <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">E-Commerce / Consumer</p>
-            <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Designed to make the brand feel sharper, more trustworthy, and easier to buy from.</p>
-            <a href="https://customgamingconsoles.com" target="_blank" rel="noopener noreferrer"
-               class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
-              Visit site
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-            </a>
-          </div>
+          <button id="dw-next" aria-label="Next projects"
+                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
 
-        <!-- College Mulch — Live -->
-        <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
-          <div class="flex items-start justify-between">
-            <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span>
-          </div>
-          <div class="mt-auto pt-10">
-            <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">College Mulch</h3>
-            <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">Landscaping / Residential</p>
-            <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Helped a fast-growing student business establish a stronger online presence.</p>
-            <a href="https://www.collegemulch.org/" target="_blank" rel="noopener noreferrer"
-               class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
-              Visit site
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-            </a>
-          </div>
-        </div>
+        <script>
+          (function () {
+            var dwCurrent = 0;
+            var dwMax = 1;
+            var dwSlides = document.getElementById('dwork-slides');
+            var dwDots = document.querySelectorAll('.dw-dot');
 
-        <!-- Bump to Baby Doula Services — Live -->
-        <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
-          <div class="flex items-start justify-between">
-            <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span>
-          </div>
-          <div class="mt-auto pt-10">
-            <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">Bump to Baby Doula Services</h3>
-            <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">Healthcare / Services</p>
-            <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Built a calming, trust-first redesign for a certified high-risk doula, replacing a broken WordPress site with a fast, mobile-friendly platform that actually converts.</p>
-            <a href="https://www.bumpbabydoula.com" target="_blank" rel="noopener noreferrer"
-               class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
-              Visit site
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-            </a>
-          </div>
-        </div>
+            function dwGoTo(n) {
+              dwCurrent = Math.max(0, Math.min(n, dwMax));
+              dwSlides.style.transform = 'translateX(-' + (dwCurrent * (100 / 3)) + '%)';
+              dwDots.forEach(function (d, i) {
+                d.style.opacity = i === dwCurrent ? '1' : '0.3';
+              });
+            }
+
+            document.getElementById('dw-prev').addEventListener('click', function () { dwGoTo(dwCurrent - 1); });
+            document.getElementById('dw-next').addEventListener('click', function () { dwGoTo(dwCurrent + 1); });
+            dwDots.forEach(function (d) {
+              d.addEventListener('click', function () { dwGoTo(parseInt(d.dataset.index)); });
+            });
+          })();
+        </script>
 
       </div>
 
@@ -260,76 +292,56 @@
 
             <!-- Fenixx Technologies -->
             <div class="w-full flex-shrink-0">
-              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
-                <div class="flex items-start justify-between">
-                  <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span>
-                </div>
-                <div class="mt-auto pt-10">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[360px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="mt-auto">
+                  <img src="Logos/Favicon%202.png" alt="Fenixx Technologies logo" style="max-height:60px;width:auto;object-fit:contain;" class="mb-4" />
                   <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">Fenixx Technologies</h3>
                   <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">B2B Manufacturing</p>
                   <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Crafted to reflect the professionalism and ambition behind the company.</p>
-                  <a href="https://www.fenixxtech.com/" target="_blank" rel="noopener noreferrer"
-                     class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
-                    Visit site
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                  </a>
+                  <a href="https://www.fenixxtech.com/" target="_blank" rel="noopener noreferrer" class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
                 </div>
               </div>
             </div>
 
             <!-- CGC Custom Gaming Consoles -->
             <div class="w-full flex-shrink-0">
-              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
-                <div class="flex items-start justify-between">
-                  <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span>
-                </div>
-                <div class="mt-auto pt-10">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[360px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="mt-auto">
+                  <img src="Logos/Logo.jpeg" alt="CGC Custom Gaming Consoles logo" style="max-height:60px;width:auto;object-fit:contain;" class="mb-4 rounded-[4px]" />
                   <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">CGC Custom Gaming Consoles</h3>
                   <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">E-Commerce / Consumer</p>
                   <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Designed to make the brand feel sharper, more trustworthy, and easier to buy from.</p>
-                  <a href="https://customgamingconsoles.com" target="_blank" rel="noopener noreferrer"
-                     class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
-                    Visit site
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                  </a>
+                  <a href="https://customgamingconsoles.com" target="_blank" rel="noopener noreferrer" class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
                 </div>
               </div>
             </div>
 
             <!-- College Mulch -->
             <div class="w-full flex-shrink-0">
-              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
-                <div class="flex items-start justify-between">
-                  <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span>
-                </div>
-                <div class="mt-auto pt-10">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[360px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="mt-auto">
+                  <img src="Logos/Brand%20logo.png" alt="College Mulch logo" style="max-height:60px;width:auto;object-fit:contain;" class="mb-4" />
                   <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">College Mulch</h3>
                   <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">Landscaping / Residential</p>
                   <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Helped a fast-growing student business establish a stronger online presence.</p>
-                  <a href="https://www.collegemulch.org/" target="_blank" rel="noopener noreferrer"
-                     class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
-                    Visit site
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                  </a>
+                  <a href="https://www.collegemulch.org/" target="_blank" rel="noopener noreferrer" class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
                 </div>
               </div>
             </div>
 
             <!-- Bump to Baby Doula Services -->
             <div class="w-full flex-shrink-0">
-              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col justify-between min-h-[240px]">
-                <div class="flex items-start justify-between">
-                  <span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span>
-                </div>
-                <div class="mt-auto pt-10">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[360px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="mt-auto">
+                  <img src="Logos/Logo.png" alt="Bump to Baby Doula Services logo" style="max-height:60px;width:auto;object-fit:contain;" class="mb-4" />
                   <h3 class="font-display font-bold text-2xl tracking-tightest mb-1">Bump to Baby Doula Services</h3>
                   <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-3">Healthcare / Services</p>
                   <p class="text-ghost text-xs font-sans leading-relaxed mb-5">Built a calming, trust-first redesign for a certified high-risk doula, replacing a broken WordPress site with a fast, mobile-friendly platform that actually converts.</p>
-                  <a href="https://www.bumpbabydoula.com" target="_blank" rel="noopener noreferrer"
-                     class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">
-                    Visit site
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                  </a>
+                  <a href="https://www.bumpbabydoula.com" target="_blank" rel="noopener noreferrer" class="visit-link inline-flex items-center gap-1.5 text-sm font-sans font-medium text-ink border-b border-ink pb-0.5">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
                 </div>
               </div>
             </div>
