@@ -14,8 +14,8 @@
   <meta property="og:url" content="https://getarclo.com" />
   <meta property="og:site_name" content="Arclo" />
 
-  <link rel="icon" type="image/png" href="image.png" />
-  <link rel="apple-touch-icon" href="image.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -805,53 +805,6 @@
     </div>
   </footer>
 
-  <script>
-    /* Crop whitespace from favicon image so the mark fills the square */
-    (function () {
-      var img = new Image();
-      img.onload = function () {
-        try {
-          var tmp = document.createElement('canvas');
-          tmp.width  = img.naturalWidth;
-          tmp.height = img.naturalHeight;
-          var tCtx = tmp.getContext('2d');
-          tCtx.drawImage(img, 0, 0);
-          var px = tCtx.getImageData(0, 0, tmp.width, tmp.height).data;
-
-          var minX = tmp.width, maxX = 0, minY = tmp.height, maxY = 0;
-          for (var y = 0; y < tmp.height; y++) {
-            for (var x = 0; x < tmp.width; x++) {
-              var i = (y * tmp.width + x) * 4;
-              if (px[i+3] > 10 && !(px[i] > 240 && px[i+1] > 240 && px[i+2] > 240)) {
-                if (x < minX) minX = x;
-                if (x > maxX) maxX = x;
-                if (y < minY) minY = y;
-                if (y > maxY) maxY = y;
-              }
-            }
-          }
-
-          var pad = (maxX - minX) * 0.08;
-          minX = Math.max(0, minX - pad);
-          minY = Math.max(0, minY - pad);
-          maxX = Math.min(tmp.width,  maxX + pad);
-          maxY = Math.min(tmp.height, maxY + pad);
-
-          var fav = document.createElement('canvas');
-          fav.width = fav.height = 128;
-          fav.getContext('2d').drawImage(
-            img,
-            minX, minY, maxX - minX, maxY - minY,
-            0, 0, 128, 128
-          );
-
-          var link = document.querySelector("link[rel='icon']");
-          if (link) link.href = fav.toDataURL('image/png');
-        } catch (e) {}
-      };
-      img.src = 'image.png';
-    })();
-  </script>
 
 </body>
 </html>
