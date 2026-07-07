@@ -442,8 +442,8 @@
         <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Businesses That Trusted Arclo</h2>
       </div>
 
-      <!-- 2×2 grid: 2 columns on desktop, stacked on mobile -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Desktop: 2×2 grid -->
+      <div class="hidden md:grid md:grid-cols-2 gap-6">
 
         <!-- Tonya Wozniak -->
         <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
@@ -497,6 +497,116 @@
           </cite>
         </div>
 
+      </div>
+
+      <!-- Mobile: carousel -->
+      <div class="md:hidden">
+        <div id="t-track" class="overflow-hidden">
+          <div id="t-slides" class="flex transition-transform duration-300 ease-in-out">
+
+            <!-- Tonya Wozniak -->
+            <div class="w-full flex-shrink-0">
+              <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.35] tracking-tighter text-ink mb-6">
+                  "I spent months chasing <strong>broken links, glitches, and even missed contacts</strong> because something failed behind the scenes. After a free 30-minute consult, Bradley presented a <strong>custom mockup within 2 business days</strong>. He listened to my vision, my concerns, and ran with it. <strong>I no longer need to touch my website</strong>. I just focus on growing my business and spending more time with my clients and family."
+                </blockquote>
+                <cite class="not-italic flex items-center gap-3">
+                  <span class="font-sans font-semibold text-sm text-ink">Tonya Wozniak</span>
+                  <span class="text-edge">|</span>
+                  <span class="font-sans text-sm text-ghost">Founder, Bump to Baby Doula Services LLC</span>
+                </cite>
+              </div>
+            </div>
+
+            <!-- Bill Hayter -->
+            <div class="w-full flex-shrink-0">
+              <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.35] tracking-tighter text-ink mb-6">
+                  "We are incredibly grateful for the outstanding website Arclo built for our waterjet cutting business. Their hard work and dedication were evident throughout the entire project. They possess an innovative eye for detail, <strong>perfectly capturing our technical precision</strong> in a sleek, modern platform. We highly recommend their <strong>fresh creativity and flawless execution</strong>! We look forward to working with Arclo to <strong>grow this site and reach new customers</strong>."
+                </blockquote>
+                <cite class="not-italic flex items-center gap-3">
+                  <span class="font-sans font-semibold text-sm text-ink">Bill Hayter</span>
+                  <span class="text-edge">|</span>
+                  <span class="font-sans text-sm text-ghost">Vice President, Fenixx Technologies, LLC</span>
+                </cite>
+              </div>
+            </div>
+
+            <!-- Ethan Daugherty -->
+            <div class="w-full flex-shrink-0">
+              <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.35] tracking-tighter text-ink mb-6">
+                  "Working with Arclo <strong>completely changed the way our business looked to customers</strong>. Before the website, we felt like just another small local service, but Arclo helped make us look organized, professional, and trustworthy online. What stood out the most was <strong>he never lost our vision and personality</strong>. Since launching, <strong>communication with customers has been dramatically easier</strong> and allowed for quicker turnaround and business. Thanks Arclo!"
+                </blockquote>
+                <cite class="not-italic flex items-center gap-3">
+                  <span class="font-sans font-semibold text-sm text-ink">Ethan Daugherty</span>
+                  <span class="text-edge">|</span>
+                  <span class="font-sans text-sm text-ghost">Co-Founder, College Mulch</span>
+                </cite>
+              </div>
+            </div>
+
+            <!-- Andre Lockett -->
+            <div class="w-full flex-shrink-0">
+              <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.35] tracking-tighter text-ink mb-6">
+                  "It was great working with Arclo! There were times when I didn't know how to explain what I wanted on my website, but <strong>they still understood the assignment</strong>. Very timely with everything I asked and also extremely consistent with keeping you in the loop. It helped the process run smoother and it looked <strong>way more credible for customers</strong>. The website <strong>made me and my business look more professional</strong>. I highly recommend their services if you want to get a website designed."
+                </blockquote>
+                <cite class="not-italic flex items-center gap-3">
+                  <span class="font-sans font-semibold text-sm text-ink">Andre Lockett</span>
+                  <span class="text-edge">|</span>
+                  <span class="font-sans text-sm text-ghost">Founder, Custom Gaming Consoles LLC</span>
+                </cite>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center justify-between mt-6">
+          <button id="t-prev" aria-label="Previous testimonial"
+                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="flex items-center gap-2">
+            <button class="t-dot w-2 h-2 rounded-full bg-[#1B2E4B] transition-opacity duration-150" data-index="0" aria-label="Go to testimonial 1"></button>
+            <button class="t-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="1" aria-label="Go to testimonial 2"></button>
+            <button class="t-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="2" aria-label="Go to testimonial 3"></button>
+            <button class="t-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="3" aria-label="Go to testimonial 4"></button>
+          </div>
+          <button id="t-next" aria-label="Next testimonial"
+                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <script>
+          (function () {
+            var tCurrent = 0;
+            var tTotal = 4;
+            var tSlides = document.getElementById('t-slides');
+            var tDots = document.querySelectorAll('.t-dot');
+
+            function tGoTo(n) {
+              tCurrent = (n + tTotal) % tTotal;
+              tSlides.style.transform = 'translateX(-' + (tCurrent * 100) + '%)';
+              tDots.forEach(function (d, i) {
+                d.style.opacity = i === tCurrent ? '1' : '0.3';
+              });
+            }
+
+            document.getElementById('t-prev').addEventListener('click', function () { tGoTo(tCurrent - 1); });
+            document.getElementById('t-next').addEventListener('click', function () { tGoTo(tCurrent + 1); });
+            tDots.forEach(function (d) {
+              d.addEventListener('click', function () { tGoTo(parseInt(d.dataset.index)); });
+            });
+          })();
+        </script>
       </div>
     </div>
   </section>
