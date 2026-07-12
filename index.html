@@ -827,10 +827,20 @@
             </div>
           </div>
         </div>
-        <div id="hiw-dots" class="flex justify-center gap-2 mt-5">
-          <button class="hiw-dot w-2 h-2 rounded-full bg-ink transition-opacity duration-200" aria-label="Step 1"></button>
-          <button class="hiw-dot w-2 h-2 rounded-full bg-ink opacity-30 transition-opacity duration-200" aria-label="Step 2"></button>
-          <button class="hiw-dot w-2 h-2 rounded-full bg-ink opacity-30 transition-opacity duration-200" aria-label="Step 3"></button>
+        <div class="flex items-center justify-center gap-4 mt-5">
+          <button id="hiw-prev" aria-label="Previous step"
+                  class="w-9 h-9 rounded-full border border-ink flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div id="hiw-dots" class="flex items-center gap-2">
+            <button class="hiw-dot w-2 h-2 rounded-full bg-ink transition-opacity duration-200" aria-label="Step 1"></button>
+            <button class="hiw-dot w-2 h-2 rounded-full bg-ink opacity-30 transition-opacity duration-200" aria-label="Step 2"></button>
+            <button class="hiw-dot w-2 h-2 rounded-full bg-ink opacity-30 transition-opacity duration-200" aria-label="Step 3"></button>
+          </div>
+          <button id="hiw-next" aria-label="Next step"
+                  class="w-9 h-9 rounded-full border border-ink flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
         <script>
           (function () {
@@ -847,6 +857,8 @@
               });
             }
 
+            document.getElementById('hiw-prev').addEventListener('click', function () { hGoTo(hCurrent - 1); });
+            document.getElementById('hiw-next').addEventListener('click', function () { hGoTo(hCurrent + 1); });
             hDots.forEach(function (d, i) {
               d.addEventListener('click', function () { hGoTo(i); });
             });
