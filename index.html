@@ -103,6 +103,12 @@
       transition: opacity 0.18s ease;
     }
     .visit-link:hover { opacity: 0.5; }
+
+    /* FAQ accordion */
+    details summary::-webkit-details-marker { display: none; }
+    details summary { cursor: pointer; }
+    .faq-chevron { transition: transform 0.2s ease; }
+    details[open] .faq-chevron { transform: rotate(180deg); }
   </style>
 
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="exaWbZjSzsYsUBbC" data-version="062024"></script>
@@ -151,10 +157,10 @@
       </h1>
 
       <p class="text-ghost text-lg font-sans leading-relaxed max-w-lg mb-10">
-        We build websites that help small businesses across Michigan stand out, earn trust fast, and convert more visitors into customers.
+        We build websites for Michigan manufacturers and service businesses that need to look as credible as the work they do — built to earn trust fast and convert visitors into quote requests.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-3">
+      <div class="flex flex-col sm:flex-row gap-3 mb-4">
         <a href="#contact"
            class="btn-primary inline-block bg-navy text-white font-display font-semibold text-sm px-7 py-3.5 rounded-[3px] text-center">
           Get a Free Quote
@@ -164,6 +170,7 @@
           See Our Work
         </a>
       </div>
+      <p class="text-ghost text-xs font-sans">5+ manufacturing quote requests generated for Fenixx Technologies &middot; Michigan-based.</p>
 
     </div>
   </section>
@@ -186,23 +193,6 @@
         <div class="overflow-hidden" id="dwork-track">
           <div id="dwork-slides" class="flex transition-transform duration-300 ease-in-out">
 
-            <!-- Bump to Baby Doula -->
-            <div class="w-1/3 flex-shrink-0 pr-5">
-              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
-                <div class="flex items-center mt-4 mb-3" style="height:80px;">
-                  <img src="Logos/BtB%20log%20Do.png" alt="Bump to Baby Doula logo" style="max-height:60px;width:auto;object-fit:contain;" />
-                </div>
-                <h3 class="font-display font-bold text-xl tracking-tightest mb-1">Bump to Baby Doula</h3>
-                <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-2">Healthcare / Services</p>
-                <p class="text-ghost text-xs font-sans leading-relaxed flex-1">Broken WordPress site with dead links and missed contacts. Delivered a custom mockup within 2 business days of the consult, she hasn't had to touch the site since launch.</p>
-                <div class="mt-4 flex flex-col gap-2.5">
-                  <a href="case-studies/bump-to-baby.html" class="btn-primary block text-center bg-navy text-white font-display font-semibold text-xs py-2.5 rounded-[3px]">Read case study</a>
-                  <a href="https://www.bumpbabydoula.com" target="_blank" rel="noopener noreferrer" class="visit-link self-start inline-flex items-center gap-1.5 text-xs font-sans font-medium text-ghost">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
-                </div>
-              </div>
-            </div>
-
             <!-- Fenixx Technologies -->
             <div class="w-1/3 flex-shrink-0 pr-5">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
@@ -220,6 +210,20 @@
               </div>
             </div>
 
+            <!-- Bump to Baby Doula -->
+            <div class="w-1/3 flex-shrink-0 pr-5">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="flex items-center mt-4 mb-3" style="height:80px;">
+                  <img src="Logos/BtB%20log%20Do.png" alt="Bump to Baby Doula logo" style="max-height:60px;width:auto;object-fit:contain;" />
+                </div>
+                <h3 class="font-display font-bold text-xl tracking-tightest mb-1">Bump to Baby Doula</h3>
+                <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-2">Healthcare / Services</p>
+                <p class="text-ghost text-xs font-sans leading-relaxed flex-1">Broken WordPress site with dead links and missed contacts. Delivered a custom mockup within 2 business days of the consult, she hasn't had to touch the site since launch.</p>
+                <a href="https://www.bumpbabydoula.com" target="_blank" rel="noopener noreferrer" class="visit-link self-start inline-flex items-center gap-1.5 text-xs font-sans font-medium text-ghost mt-4">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+              </div>
+            </div>
+
             <!-- Custom Gaming Consoles -->
             <div class="w-1/3 flex-shrink-0 pr-5">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
@@ -230,10 +234,7 @@
                 <h3 class="font-display font-bold text-xl tracking-tightest mb-1">Custom Gaming Consoles</h3>
                 <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-2">E-Commerce / Consumer</p>
                 <p class="text-ghost text-xs font-sans leading-relaxed flex-1">Owner couldn't fully articulate the vision going in. Delivered anyway, a dark-themed e-commerce build that made the business look established and credible to customers from day one.</p>
-                <div class="mt-4 flex flex-col gap-2.5">
-                  <a href="case-studies/cgc.html" class="btn-primary block text-center bg-navy text-white font-display font-semibold text-xs py-2.5 rounded-[3px]">Read case study</a>
-                  <a href="https://customgamingconsoles.com" target="_blank" rel="noopener noreferrer" class="visit-link self-start inline-flex items-center gap-1.5 text-xs font-sans font-medium text-ghost">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
-                </div>
+                <a href="https://customgamingconsoles.com" target="_blank" rel="noopener noreferrer" class="visit-link self-start inline-flex items-center gap-1.5 text-xs font-sans font-medium text-ghost mt-4">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
               </div>
             </div>
 
@@ -304,23 +305,6 @@
         <div id="work-track" class="overflow-hidden">
           <div id="work-slides" class="flex transition-transform duration-300 ease-in-out">
 
-            <!-- Bump to Baby Doula -->
-            <div class="w-full flex-shrink-0">
-              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
-                <div class="flex items-center mt-4 mb-3" style="height:80px;">
-                  <img src="Logos/BtB%20log%20Do.png" alt="Bump to Baby Doula logo" style="max-height:60px;width:auto;object-fit:contain;" />
-                </div>
-                <h3 class="font-display font-bold text-xl tracking-tightest mb-1">Bump to Baby Doula</h3>
-                <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-2">Healthcare / Services</p>
-                <p class="text-ghost text-xs font-sans leading-relaxed flex-1">Broken WordPress site with dead links and missed contacts. Delivered a custom mockup within 2 business days of the consult, she hasn't had to touch the site since launch.</p>
-                <div class="mt-4 flex flex-col gap-2.5">
-                  <a href="case-studies/bump-to-baby.html" class="btn-primary block text-center bg-navy text-white font-display font-semibold text-xs py-2.5 rounded-[3px]">Read case study</a>
-                  <a href="https://www.bumpbabydoula.com" target="_blank" rel="noopener noreferrer" class="visit-link self-start inline-flex items-center gap-1.5 text-xs font-sans font-medium text-ghost">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
-                </div>
-              </div>
-            </div>
-
             <!-- Fenixx Technologies -->
             <div class="w-full flex-shrink-0">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
@@ -338,6 +322,20 @@
               </div>
             </div>
 
+            <!-- Bump to Baby Doula -->
+            <div class="w-full flex-shrink-0">
+              <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div class="flex items-center mt-4 mb-3" style="height:80px;">
+                  <img src="Logos/BtB%20log%20Do.png" alt="Bump to Baby Doula logo" style="max-height:60px;width:auto;object-fit:contain;" />
+                </div>
+                <h3 class="font-display font-bold text-xl tracking-tightest mb-1">Bump to Baby Doula</h3>
+                <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-2">Healthcare / Services</p>
+                <p class="text-ghost text-xs font-sans leading-relaxed flex-1">Broken WordPress site with dead links and missed contacts. Delivered a custom mockup within 2 business days of the consult, she hasn't had to touch the site since launch.</p>
+                <a href="https://www.bumpbabydoula.com" target="_blank" rel="noopener noreferrer" class="visit-link self-start inline-flex items-center gap-1.5 text-xs font-sans font-medium text-ghost mt-4">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+              </div>
+            </div>
+
             <!-- Custom Gaming Consoles -->
             <div class="w-full flex-shrink-0">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
@@ -348,10 +346,7 @@
                 <h3 class="font-display font-bold text-xl tracking-tightest mb-1">Custom Gaming Consoles</h3>
                 <p class="text-ghost text-xs font-sans uppercase tracking-[0.12em] mb-2">E-Commerce / Consumer</p>
                 <p class="text-ghost text-xs font-sans leading-relaxed flex-1">Owner couldn't fully articulate the vision going in. Delivered anyway, a dark-themed e-commerce build that made the business look established and credible to customers from day one.</p>
-                <div class="mt-4 flex flex-col gap-2.5">
-                  <a href="case-studies/cgc.html" class="btn-primary block text-center bg-navy text-white font-display font-semibold text-xs py-2.5 rounded-[3px]">Read case study</a>
-                  <a href="https://customgamingconsoles.com" target="_blank" rel="noopener noreferrer" class="visit-link self-start inline-flex items-center gap-1.5 text-xs font-sans font-medium text-ghost">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
-                </div>
+                <a href="https://customgamingconsoles.com" target="_blank" rel="noopener noreferrer" class="visit-link self-start inline-flex items-center gap-1.5 text-xs font-sans font-medium text-ghost mt-4">Visit site <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
               </div>
             </div>
 
@@ -471,19 +466,6 @@
       <!-- Desktop: 2×2 grid -->
       <div class="hidden md:grid md:grid-cols-2 gap-6">
 
-        <!-- Tonya Wozniak -->
-        <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
-          <div class="w-8 h-[2px] bg-ink mb-6"></div>
-          <blockquote class="font-display font-medium text-lg leading-[1.35] tracking-tighter text-ink mb-6 flex-1">
-            "I spent months chasing <strong>broken links, glitches, and even missed contacts</strong> because something failed behind the scenes. After a free 30-minute consult, Bradley presented a <strong>custom mockup within 2 business days</strong>. He listened to my vision, my concerns, and ran with it. <strong>I no longer need to touch my website</strong>. I just focus on growing my business and spending more time with my clients and family."
-          </blockquote>
-          <cite class="not-italic flex items-center gap-3">
-            <span class="font-sans font-semibold text-sm text-ink">Tonya Wozniak</span>
-            <span class="text-edge">|</span>
-            <span class="font-sans text-sm text-ghost">Founder, Bump to Baby Doula Services LLC</span>
-          </cite>
-        </div>
-
         <!-- Bill Hayter -->
         <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
           <div class="w-8 h-[2px] bg-ink mb-6"></div>
@@ -494,6 +476,19 @@
             <span class="font-sans font-semibold text-sm text-ink">Bill Hayter</span>
             <span class="text-edge">|</span>
             <span class="font-sans text-sm text-ghost">Vice President, Fenixx Technologies, LLC</span>
+          </cite>
+        </div>
+
+        <!-- Tonya Wozniak -->
+        <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
+          <div class="w-8 h-[2px] bg-ink mb-6"></div>
+          <blockquote class="font-display font-medium text-lg leading-[1.35] tracking-tighter text-ink mb-6 flex-1">
+            "I spent months chasing <strong>broken links, glitches, and even missed contacts</strong> because something failed behind the scenes. After a free 30-minute consult, Bradley presented a <strong>custom mockup within 2 business days</strong>. He listened to my vision, my concerns, and ran with it. <strong>I no longer need to touch my website</strong>. I just focus on growing my business and spending more time with my clients and family."
+          </blockquote>
+          <cite class="not-italic flex items-center gap-3">
+            <span class="font-sans font-semibold text-sm text-ink">Tonya Wozniak</span>
+            <span class="text-edge">|</span>
+            <span class="font-sans text-sm text-ghost">Founder, Bump to Baby Doula Services LLC</span>
           </cite>
         </div>
 
@@ -530,21 +525,6 @@
         <div id="t-track" class="overflow-hidden">
           <div id="t-slides" class="flex transition-transform duration-300 ease-in-out">
 
-            <!-- Tonya Wozniak -->
-            <div class="w-full flex-shrink-0">
-              <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
-                <blockquote class="font-display font-medium text-lg leading-[1.35] tracking-tighter text-ink mb-6">
-                  "I spent months chasing <strong>broken links, glitches, and even missed contacts</strong> because something failed behind the scenes. After a free 30-minute consult, Bradley presented a <strong>custom mockup within 2 business days</strong>. He listened to my vision, my concerns, and ran with it. <strong>I no longer need to touch my website</strong>. I just focus on growing my business and spending more time with my clients and family."
-                </blockquote>
-                <cite class="not-italic flex items-center gap-3">
-                  <span class="font-sans font-semibold text-sm text-ink">Tonya Wozniak</span>
-                  <span class="text-edge">|</span>
-                  <span class="font-sans text-sm text-ghost">Founder, Bump to Baby Doula Services LLC</span>
-                </cite>
-              </div>
-            </div>
-
             <!-- Bill Hayter -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
@@ -556,6 +536,21 @@
                   <span class="font-sans font-semibold text-sm text-ink">Bill Hayter</span>
                   <span class="text-edge">|</span>
                   <span class="font-sans text-sm text-ghost">Vice President, Fenixx Technologies, LLC</span>
+                </cite>
+              </div>
+            </div>
+
+            <!-- Tonya Wozniak -->
+            <div class="w-full flex-shrink-0">
+              <div class="bg-white border border-edge rounded-[4px] p-8 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.35] tracking-tighter text-ink mb-6">
+                  "I spent months chasing <strong>broken links, glitches, and even missed contacts</strong> because something failed behind the scenes. After a free 30-minute consult, Bradley presented a <strong>custom mockup within 2 business days</strong>. He listened to my vision, my concerns, and ran with it. <strong>I no longer need to touch my website</strong>. I just focus on growing my business and spending more time with my clients and family."
+                </blockquote>
+                <cite class="not-italic flex items-center gap-3">
+                  <span class="font-sans font-semibold text-sm text-ink">Tonya Wozniak</span>
+                  <span class="text-edge">|</span>
+                  <span class="font-sans text-sm text-ghost">Founder, Bump to Baby Doula Services LLC</span>
                 </cite>
               </div>
             </div>
@@ -835,6 +830,77 @@
 
 
   <!-- ═══════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-white border-y border-edge">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="mb-12">
+        <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">FAQ</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Common questions.</h2>
+      </div>
+
+      <div class="max-w-2xl border border-edge rounded-[4px] overflow-hidden divide-y divide-edge">
+
+        <details class="group bg-white">
+          <summary class="flex items-center justify-between px-6 py-5 select-none">
+            <span class="font-display font-semibold text-base tracking-tighter text-ink pr-6">How long does a project actually take?</span>
+            <svg class="faq-chevron flex-shrink-0 w-4 h-4 text-ghost" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-ghost text-sm leading-relaxed">A custom mockup is typically ready within 2 business days of our first call. Full build and launch timing depends on scope, most single-page sites move fast; multi-page builds take longer. You'll get a clear timeline before any work starts.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white">
+          <summary class="flex items-center justify-between px-6 py-5 select-none">
+            <span class="font-display font-semibold text-base tracking-tighter text-ink pr-6">Do you work with businesses outside of web design's usual "trendy startup" mold?</span>
+            <svg class="faq-chevron flex-shrink-0 w-4 h-4 text-ghost" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-ghost text-sm leading-relaxed">Yes. Arclo's core work is with Michigan manufacturers, trades, and industrial businesses, plus local service businesses. If your site needs to look credible to buyers who are evaluating you on competence, not aesthetics, that's exactly what we build for.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white">
+          <summary class="flex items-center justify-between px-6 py-5 select-none">
+            <span class="font-display font-semibold text-base tracking-tighter text-ink pr-6">What happens after the site launches — do you disappear?</span>
+            <svg class="faq-chevron flex-shrink-0 w-4 h-4 text-ghost" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-ghost text-sm leading-relaxed">No. Every site includes ongoing maintenance so it keeps working after launch, and you can reach out directly any time something needs to change. No templates, no outsourced developers, no handoff to a support queue.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white">
+          <summary class="flex items-center justify-between px-6 py-5 select-none">
+            <span class="font-display font-semibold text-base tracking-tighter text-ink pr-6">Do I need to provide my own copy, photos, and content?</span>
+            <svg class="faq-chevron flex-shrink-0 w-4 h-4 text-ghost" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-ghost text-sm leading-relaxed">We'll work with whatever you have — existing copy, photos, logos — and fill gaps together during the consult. You don't need a polished brief walking in.</p>
+          </div>
+        </details>
+
+        <!--
+          TODO FOR BRADLEY: Confirm answer before publishing this question.
+          <details class="group bg-white">
+            <summary class="flex items-center justify-between px-6 py-5 select-none">
+              <span class="font-display font-semibold text-base tracking-tighter text-ink pr-6">Do you take on rush projects or work outside Michigan?</span>
+              <svg class="faq-chevron flex-shrink-0 w-4 h-4 text-ghost" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-ghost text-sm leading-relaxed">[Answer pending — confirm policy before publishing]</p>
+            </div>
+          </details>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
        CONTACT
   ═══════════════════════════════════════════ -->
   <section id="contact" class="py-24 bg-canvas">
@@ -851,7 +917,13 @@
         </a>
       </div>
 
-        <form action="https://formspree.io/f/mjgzojye" method="POST" class="space-y-5 max-w-lg">
+        <!-- Success state (hidden until form submits) -->
+        <div id="form-success" style="display:none;" class="max-w-lg py-12 text-center border border-edge rounded-[4px] bg-white">
+          <p class="font-display font-bold text-xl tracking-tightest text-ink mb-2">Message received.</p>
+          <p class="text-ghost text-sm">We'll be in touch within one business day.</p>
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/mjgzojye" method="POST" class="space-y-5 max-w-lg">
 
           <div>
             <label for="name" class="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-ghost mb-2">
@@ -908,13 +980,42 @@
             ></textarea>
           </div>
 
+          <p class="text-ghost text-xs font-sans">We respond within one business day — no auto-replies, no sales calls unless you want one.</p>
+
           <button
             type="submit"
             class="btn-submit w-full bg-navy text-white font-display font-semibold text-sm py-3.5 rounded-[3px]">
-            Send Message
+            Request My Free Quote
           </button>
 
         </form>
+
+        <script>
+          (function () {
+            var form = document.getElementById('contact-form');
+            var success = document.getElementById('form-success');
+            form.addEventListener('submit', function (e) {
+              e.preventDefault();
+              fetch('https://formspree.io/f/mjgzojye', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+              }).then(function (res) {
+                if (res.ok) {
+                  form.style.display = 'none';
+                  success.style.display = 'block';
+                } else {
+                  res.json().then(function (data) {
+                    var msg = (data.errors || []).map(function (e) { return e.message; }).join(', ') || 'Something went wrong. Please try again.';
+                    alert(msg);
+                  });
+                }
+              }).catch(function () {
+                alert('Network error. Please check your connection and try again.');
+              });
+            });
+          })();
+        </script>
 
     </div>
   </section>
