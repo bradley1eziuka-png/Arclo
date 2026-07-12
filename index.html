@@ -806,23 +806,52 @@
         </div>
       </div>
 
-      <!-- Mobile: stacked -->
-      <div class="md:hidden space-y-4">
-        <div class="bg-white border border-edge rounded-[4px] p-6">
-          <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Step 01</p>
-          <h3 class="font-display font-bold text-lg tracking-tightest mb-2">Free Consult</h3>
-          <p class="text-ghost text-sm leading-relaxed">30 minutes, no obligation. We talk through your business, your goals, and what a strong site would do for you.</p>
+      <!-- Mobile: carousel -->
+      <div class="md:hidden">
+        <div class="overflow-hidden" id="hiw-track">
+          <div id="hiw-slides" class="flex transition-transform duration-300 ease-in-out">
+            <div class="w-full flex-shrink-0 bg-white border border-edge rounded-[4px] p-6">
+              <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Step 01</p>
+              <h3 class="font-display font-bold text-lg tracking-tightest mb-2">Free Consult</h3>
+              <p class="text-ghost text-sm leading-relaxed">30 minutes, no obligation. We talk through your business, your goals, and what a strong site would do for you.</p>
+            </div>
+            <div class="w-full flex-shrink-0 bg-white border border-edge rounded-[4px] p-6">
+              <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Step 02</p>
+              <h3 class="font-display font-bold text-lg tracking-tightest mb-2">Custom Mockup</h3>
+              <p class="text-ghost text-sm leading-relaxed">Typically within 2 business days. A real design built for your business, not a template with your logo swapped in.</p>
+            </div>
+            <div class="w-full flex-shrink-0 bg-white border border-edge rounded-[4px] p-6">
+              <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Step 03</p>
+              <h3 class="font-display font-bold text-lg tracking-tightest mb-2">Build + Launch</h3>
+              <p class="text-ghost text-sm leading-relaxed">We build it directly, no outsourced developers. You stay in the loop until it's live and beyond.</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-white border border-edge rounded-[4px] p-6">
-          <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Step 02</p>
-          <h3 class="font-display font-bold text-lg tracking-tightest mb-2">Custom Mockup</h3>
-          <p class="text-ghost text-sm leading-relaxed">Typically within 2 business days. A real design built for your business, not a template with your logo swapped in.</p>
+        <div id="hiw-dots" class="flex justify-center gap-2 mt-5">
+          <button class="hiw-dot w-2 h-2 rounded-full bg-ink transition-opacity duration-200" aria-label="Step 1"></button>
+          <button class="hiw-dot w-2 h-2 rounded-full bg-ink opacity-30 transition-opacity duration-200" aria-label="Step 2"></button>
+          <button class="hiw-dot w-2 h-2 rounded-full bg-ink opacity-30 transition-opacity duration-200" aria-label="Step 3"></button>
         </div>
-        <div class="bg-white border border-edge rounded-[4px] p-6">
-          <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Step 03</p>
-          <h3 class="font-display font-bold text-lg tracking-tightest mb-2">Build + Launch</h3>
-          <p class="text-ghost text-sm leading-relaxed">We build it directly, no outsourced developers. You stay in the loop until it's live and beyond.</p>
-        </div>
+        <script>
+          (function () {
+            var hSlides = document.getElementById('hiw-slides');
+            var hDots = document.querySelectorAll('.hiw-dot');
+            var hCurrent = 0;
+            var hTotal = 3;
+
+            function hGoTo(n) {
+              hCurrent = Math.max(0, Math.min(n, hTotal - 1));
+              hSlides.style.transform = 'translateX(-' + (hCurrent * 100) + '%)';
+              hDots.forEach(function (d, i) {
+                d.style.opacity = i === hCurrent ? '1' : '0.3';
+              });
+            }
+
+            hDots.forEach(function (d, i) {
+              d.addEventListener('click', function () { hGoTo(i); });
+            });
+          })();
+        </script>
       </div>
 
     </div>
