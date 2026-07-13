@@ -109,6 +109,9 @@
     details summary { cursor: pointer; }
     .faq-chevron { transition: transform 0.2s ease; }
     details[open] .faq-chevron { transform: rotate(180deg); }
+
+    /* Anchor scroll offset — compensate for fixed 64px header */
+    section[id] { scroll-margin-top: 4rem; }
   </style>
 
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="exaWbZjSzsYsUBbC" data-version="062024"></script>
@@ -122,16 +125,47 @@
   <header class="fixed top-0 inset-x-0 z-50 bg-white border-b border-edge">
     <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
 
-      <a href="#" class="flex items-center gap-2.5 nav-link" aria-label="Arclo home">
+      <a href="#" class="flex items-center gap-2.5 nav-link flex-shrink-0" aria-label="Arclo home">
         <img src="image.png" alt="Arclo logo" class="h-16 w-auto" />
         <span class="font-display font-semibold text-[1.05rem] tracking-tightest">Arclo</span>
       </a>
 
-      <a href="#contact"
-         class="btn-primary bg-navy text-white font-display font-semibold text-sm px-5 py-2 rounded-[3px]">
-        Get a Free Quote
-      </a>
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#work"         class="font-sans text-sm text-ghost hover:text-ink transition-colors duration-150">Work</a>
+        <a href="#about"        class="font-sans text-sm text-ghost hover:text-ink transition-colors duration-150">About</a>
+        <a href="#testimonials" class="font-sans text-sm text-ghost hover:text-ink transition-colors duration-150">Testimonials</a>
+        <a href="#services"     class="font-sans text-sm text-ghost hover:text-ink transition-colors duration-150">Services</a>
+        <a href="#contact"      class="font-sans text-sm text-ghost hover:text-ink transition-colors duration-150">Contact</a>
+      </nav>
 
+      <!-- CTA + mobile hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="#contact"
+           class="btn-primary bg-navy text-white font-display font-semibold text-sm px-5 py-2 rounded-[3px]">
+          Get a Free Quote
+        </a>
+        <button id="nav-toggle" class="md:hidden p-1 text-ink" aria-label="Open navigation menu" aria-expanded="false">
+          <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="nav-mobile" class="md:hidden hidden border-t border-edge bg-white">
+      <nav class="max-w-5xl mx-auto px-6 py-5 flex flex-col gap-1">
+        <a href="#work"         class="mobile-nav-link font-sans text-sm text-ghost hover:text-ink transition-colors duration-150 py-2">Work</a>
+        <a href="#about"        class="mobile-nav-link font-sans text-sm text-ghost hover:text-ink transition-colors duration-150 py-2">About</a>
+        <a href="#testimonials" class="mobile-nav-link font-sans text-sm text-ghost hover:text-ink transition-colors duration-150 py-2">Testimonials</a>
+        <a href="#services"     class="mobile-nav-link font-sans text-sm text-ghost hover:text-ink transition-colors duration-150 py-2">Services</a>
+        <a href="#contact"      class="mobile-nav-link font-sans text-sm text-ghost hover:text-ink transition-colors duration-150 py-2">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -416,7 +450,7 @@
   <!-- ═══════════════════════════════════════════
        MEET THE FOUNDER
   ═══════════════════════════════════════════ -->
-  <section class="py-24 bg-white border-y border-edge">
+  <section id="about" class="py-24 bg-white border-y border-edge">
     <div class="max-w-5xl mx-auto px-6">
 
       <div class="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
@@ -454,7 +488,7 @@
   <!-- ═══════════════════════════════════════════
        TESTIMONIAL
   ═══════════════════════════════════════════ -->
-  <section class="py-24 bg-canvas">
+  <section id="testimonials" class="py-24 bg-canvas">
     <div class="max-w-5xl mx-auto px-6">
       <div class="mb-12">
         <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Businesses That Trusted Arclo</h2>
@@ -1171,6 +1205,36 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var toggle    = document.getElementById('nav-toggle');
+      var menu      = document.getElementById('nav-mobile');
+      var iconMenu  = document.getElementById('icon-menu');
+      var iconClose = document.getElementById('icon-close');
+
+      function openMenu() {
+        menu.classList.remove('hidden');
+        iconMenu.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+        menu.classList.add('hidden');
+        iconMenu.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', function () {
+        menu.classList.contains('hidden') ? openMenu() : closeMenu();
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
 
 </body>
 </html>
