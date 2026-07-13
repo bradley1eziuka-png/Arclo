@@ -327,20 +327,30 @@
             var dwMax = 2;
             var dwSlides = document.getElementById('dwork-slides');
             var dwDots = document.querySelectorAll('.dw-dot');
+            var dwTimer;
 
             function dwGoTo(n) {
-              dwCurrent = Math.max(0, Math.min(n, dwMax));
+              dwCurrent = ((n % (dwMax + 1)) + (dwMax + 1)) % (dwMax + 1);
               dwSlides.style.transform = 'translateX(-' + (dwCurrent * (100 / 3)) + '%)';
               dwDots.forEach(function (d, i) {
                 d.style.opacity = i === dwCurrent ? '1' : '0.3';
               });
             }
 
-            document.getElementById('dw-prev').addEventListener('click', function () { dwGoTo(dwCurrent - 1); });
-            document.getElementById('dw-next').addEventListener('click', function () { dwGoTo(dwCurrent + 1); });
+            function dwNext() { dwGoTo(dwCurrent + 1); }
+
+            function resetTimer() {
+              clearInterval(dwTimer);
+              dwTimer = setInterval(dwNext, 2500);
+            }
+
+            document.getElementById('dw-prev').addEventListener('click', function () { dwGoTo(dwCurrent - 1); resetTimer(); });
+            document.getElementById('dw-next').addEventListener('click', function () { dwNext(); resetTimer(); });
             dwDots.forEach(function (d) {
-              d.addEventListener('click', function () { dwGoTo(parseInt(d.dataset.index)); });
+              d.addEventListener('click', function () { dwGoTo(parseInt(d.dataset.index)); resetTimer(); });
             });
+
+            resetTimer();
           })();
         </script>
 
