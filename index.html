@@ -323,31 +323,58 @@
 
         <script>
           (function () {
-            var dwCurrent = 0;
-            var dwMax = 2;
-            var dwSlides = document.getElementById('dwork-slides');
-            var dwDots = document.querySelectorAll('.dw-dot');
-            var dwTimer;
+            var dwSlides  = document.getElementById('dwork-slides');
+            var dwDots    = document.querySelectorAll('.dw-dot');
+            var dwTimer, dwSnapTimer;
 
-            function dwGoTo(n) {
-              dwCurrent = ((n % (dwMax + 1)) + (dwMax + 1)) % (dwMax + 1);
-              dwSlides.style.transform = 'translateX(-' + (dwCurrent * (100 / 3)) + '%)';
+            // Append clones of all 5 cards → 10 cards total, enabling seamless forward wrap
+            Array.from(dwSlides.children).forEach(function (card) {
+              dwSlides.appendChild(card.cloneNode(true));
+            });
+
+            var dwPos = 0;
+            var STEP  = 100 / 3; // % per card width
+
+            function dwMoveTo(pos, animate) {
+              dwSlides.style.transition = animate ? '' : 'none';
+              dwSlides.style.transform  = 'translateX(-' + (pos * STEP) + '%)';
+              dwPos = pos;
+              var dot = pos % 3;
               dwDots.forEach(function (d, i) {
-                d.style.opacity = i === dwCurrent ? '1' : '0.3';
+                d.style.opacity = i === dot ? '1' : '0.3';
               });
             }
 
-            function dwNext() { dwGoTo(dwCurrent + 1); }
+            function dwNext() {
+              clearTimeout(dwSnapTimer);
+              dwMoveTo(dwPos + 1, true);
+              // Position 5 shows the clones of cards 1-3 (same visual as position 0)
+              // Snap silently back to position 0 after the 300ms transition completes
+              if (dwPos >= 5) {
+                var snapTo = dwPos - 5;
+                dwSnapTimer = setTimeout(function () { dwMoveTo(snapTo, false); }, 320);
+              }
+            }
+
+            function dwPrev() {
+              clearTimeout(dwSnapTimer);
+              // At position 0, wrap backward to last real group (position 2)
+              dwMoveTo(dwPos > 0 ? dwPos - 1 : 2, true);
+            }
 
             function resetTimer() {
               clearInterval(dwTimer);
               dwTimer = setInterval(dwNext, 2500);
             }
 
-            document.getElementById('dw-prev').addEventListener('click', function () { dwGoTo(dwCurrent - 1); resetTimer(); });
+            document.getElementById('dw-prev').addEventListener('click', function () { dwPrev(); resetTimer(); });
             document.getElementById('dw-next').addEventListener('click', function () { dwNext(); resetTimer(); });
             dwDots.forEach(function (d) {
-              d.addEventListener('click', function () { dwGoTo(parseInt(d.dataset.index)); resetTimer(); });
+              d.addEventListener('click', function () {
+                clearTimeout(dwSnapTimer);
+                dwMoveTo(parseInt(d.dataset.index), true);
+                resetTimer();
+              });
             });
 
             resetTimer();
