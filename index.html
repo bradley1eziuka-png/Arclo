@@ -488,24 +488,46 @@
 
         <script>
           (function () {
-            var wCurrent = 0;
-            var wTotal = 5;
-            var wSlides = document.getElementById('work-slides');
-            var wDots = document.querySelectorAll('.w-dot');
-
-            function wGoTo(n) {
-              wCurrent = (n + wTotal) % wTotal;
-              wSlides.style.transform = 'translateX(-' + (wCurrent * 100) + '%)';
-              wDots.forEach(function (d, i) {
-                d.style.opacity = i === wCurrent ? '1' : '0.3';
-              });
-            }
-
-            document.getElementById('w-prev').addEventListener('click', function () { wGoTo(wCurrent - 1); });
-            document.getElementById('w-next').addEventListener('click', function () { wGoTo(wCurrent + 1); });
-            wDots.forEach(function (d) {
-              d.addEventListener('click', function () { wGoTo(parseInt(d.dataset.index)); });
+            var wSlides  = document.getElementById('work-slides');
+            var wDots    = document.querySelectorAll('.w-dot');
+            var wTimer, wSnapTimer;
+            Array.from(wSlides.children).forEach(function (card) {
+              wSlides.appendChild(card.cloneNode(true));
             });
+            var wPos = 0;
+            function wMoveTo(pos, animate) {
+              wSlides.style.transition = animate ? '' : 'none';
+              wSlides.style.transform  = 'translateX(-' + (pos * 100) + '%)';
+              wPos = pos;
+              var dot = pos % 5;
+              wDots.forEach(function (d, i) { d.style.opacity = i === dot ? '1' : '0.3'; });
+            }
+            function wNext() {
+              clearTimeout(wSnapTimer);
+              wMoveTo(wPos + 1, true);
+              if (wPos >= 5) {
+                var snapTo = wPos - 5;
+                wSnapTimer = setTimeout(function () { wMoveTo(snapTo, false); }, 320);
+              }
+            }
+            function resetTimer() {
+              clearInterval(wTimer);
+              wTimer = setInterval(wNext, 2500);
+            }
+            document.getElementById('w-prev').addEventListener('click', function () {
+              clearTimeout(wSnapTimer);
+              wMoveTo(wPos > 0 ? wPos - 1 : 4, true);
+              resetTimer();
+            });
+            document.getElementById('w-next').addEventListener('click', function () { wNext(); resetTimer(); });
+            wDots.forEach(function (d) {
+              d.addEventListener('click', function () {
+                clearTimeout(wSnapTimer);
+                wMoveTo(parseInt(d.dataset.index), true);
+                resetTimer();
+              });
+            });
+            resetTimer();
           })();
         </script>
 
@@ -721,9 +743,9 @@
 
             <!-- Bill Hayter -->
             <div class="w-full flex-shrink-0">
-              <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
-                <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8">
+              <div class="bg-white border border-edge rounded-[4px] p-7 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-5"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.4] tracking-tighter text-ink mb-5">
                   "We are incredibly grateful for the outstanding website Arclo built for our waterjet cutting business. Their hard work and dedication were evident throughout the entire project. They possess an innovative eye for detail, <strong>perfectly capturing our technical precision</strong> in a sleek, modern platform. We highly recommend their <strong>fresh creativity and flawless execution</strong>! We look forward to working with Arclo to <strong>grow this site and reach new customers</strong>."
                 </blockquote>
                 <cite class="not-italic flex items-center gap-3">
@@ -736,9 +758,9 @@
 
             <!-- Tonya Wozniak -->
             <div class="w-full flex-shrink-0">
-              <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
-                <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8">
+              <div class="bg-white border border-edge rounded-[4px] p-7 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-5"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.4] tracking-tighter text-ink mb-5">
                   "I spent months chasing <strong>broken links, glitches, and even missed contacts</strong> because something failed behind the scenes. After a free 30-minute consult, Bradley presented a <strong>custom mockup within 2 business days</strong>. He listened to my vision, my concerns, and ran with it. <strong>I no longer need to touch my website</strong>. I just focus on growing my business and spending more time with my clients and family."
                 </blockquote>
                 <cite class="not-italic flex items-center gap-3">
@@ -751,9 +773,9 @@
 
             <!-- Ethan Daugherty -->
             <div class="w-full flex-shrink-0">
-              <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
-                <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8">
+              <div class="bg-white border border-edge rounded-[4px] p-7 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-5"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.4] tracking-tighter text-ink mb-5">
                   "Working with Arclo <strong>completely changed the way our business looked to customers</strong>. Before the website, we felt like just another small local service, but Arclo helped make us look organized, professional, and trustworthy online. What stood out the most was <strong>he never lost our vision and personality</strong>. Since launching, <strong>communication with customers has been dramatically easier</strong> and allowed for quicker turnaround and business. Thanks Arclo!"
                 </blockquote>
                 <cite class="not-italic flex items-center gap-3">
@@ -766,9 +788,9 @@
 
             <!-- Andre Lockett -->
             <div class="w-full flex-shrink-0">
-              <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
-                <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8">
+              <div class="bg-white border border-edge rounded-[4px] p-7 flex flex-col">
+                <div class="w-8 h-[2px] bg-ink mb-5"></div>
+                <blockquote class="font-display font-medium text-lg leading-[1.4] tracking-tighter text-ink mb-5">
                   "It was great working with Arclo! There were times when I didn't know how to explain what I wanted on my website, but <strong>they still understood the assignment</strong>. Very timely with everything I asked and also extremely consistent with keeping you in the loop. It helped the process run smoother and it looked <strong>way more credible for customers</strong>. The website <strong>made me and my business look more professional</strong>. I highly recommend their services if you want to get a website designed."
                 </blockquote>
                 <cite class="not-italic flex items-center gap-3">
