@@ -59,6 +59,19 @@
     /* Motion curve — one easing for the whole site */
     :root { --arclo-ease: cubic-bezier(0.4, 0, 0.2, 1); }
 
+    /* Section eyebrow — single chevron derived from the Arclo mark.
+       Same 34° rake and miter apex as the logo, at one-third the weight. */
+    .eyebrow { display: flex; align-items: center; gap: 0.55rem; }
+    .eyebrow::before {
+      content: '';
+      width: 13px;
+      height: 8px;
+      flex-shrink: 0;
+      background-color: #1B2E4B;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 6L7 2L13 6' fill='none' stroke='black' stroke-width='2' stroke-linejoin='miter'/%3E%3C/svg%3E") no-repeat center / contain;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 6L7 2L13 6' fill='none' stroke='black' stroke-width='2' stroke-linejoin='miter'/%3E%3C/svg%3E") no-repeat center / contain;
+    }
+
     .btn-primary {
       transition: background-color 0.18s var(--arclo-ease), transform 0.18s var(--arclo-ease);
     }
@@ -214,7 +227,7 @@
 
     <div class="max-w-5xl mx-auto px-6 pt-20 pb-16 w-full relative">
 
-      <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-8">
+      <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-8">
         Web Design &amp; Development / Midwest
       </p>
 
@@ -248,8 +261,8 @@
     <div class="max-w-5xl mx-auto px-6">
 
       <div class="mb-12">
-        <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">The Work</p>
-        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">See how we've helped businesses grow.</h2>
+        <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">The Work</p>
+        <h2 class="font-display font-bold text-4xl md:text-5xl tracking-tightest mb-2">See how we've helped businesses grow.</h2>
         <p class="text-ghost text-sm max-w-xl">Every website is built to do one job: turn the people who find you into customers.</p>
       </div>
 
@@ -609,7 +622,7 @@
 
         <!-- Text -->
         <div class="w-full md:w-3/5">
-          <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">The Founder</p>
+          <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">The Founder</p>
           <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-8">The person behind every build.</h2>
 
           <div class="font-sans text-sm leading-relaxed text-ink space-y-5">
@@ -637,7 +650,8 @@
   <section id="testimonials" class="py-24 bg-canvas">
     <div class="max-w-5xl mx-auto px-6">
       <div class="mb-12">
-        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Businesses That Trusted Arclo</h2>
+        <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Testimonials</p>
+        <h2 class="font-display font-bold text-4xl md:text-5xl tracking-tightest mb-2">Businesses That Trusted Arclo</h2>
       </div>
 
       <!-- Desktop: auto-rotating 1-up carousel with arrows -->
@@ -919,7 +933,7 @@
     <div class="max-w-5xl mx-auto px-6">
 
       <div class="mb-12">
-        <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Our Services</p>
+        <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Our Services</p>
         <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2 max-w-3xl">Your website is speaking for your business every day. Make sure it's saying the right thing.</h2>
         <p class="text-ghost text-sm max-w-xl mb-3">More than just good design. Websites built to help your business grow, stand out, and win online.</p>
         <p class="text-ink text-sm font-sans font-medium max-w-xl">No templates, no outsourcing, no disappearing after launch, every project is built and supported directly by the person you hire.</p>
@@ -1063,7 +1077,7 @@
     <div class="max-w-5xl mx-auto px-6">
 
       <div class="mb-12">
-        <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">How It Works</p>
+        <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">How It Works</p>
         <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2 max-w-3xl">From first call to live site, here's what to expect.</h2>
       </div>
 
@@ -1156,8 +1170,8 @@
     <div class="max-w-5xl mx-auto px-6">
 
       <div class="mb-12">
-        <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">FAQ</p>
-        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Common questions.</h2>
+        <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">FAQ</p>
+        <h2 class="font-display font-bold text-2xl md:text-3xl tracking-tightest mb-2">Common questions.</h2>
       </div>
 
       <div class="max-w-2xl border border-edge rounded-[4px] overflow-hidden divide-y divide-edge">
@@ -1215,6 +1229,7 @@
     <div class="max-w-5xl mx-auto px-6">
 
       <div class="mb-10">
+        <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Contact</p>
         <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2 max-w-3xl">Let's make your first impression impossible to forget.</h2>
         <p class="text-ghost text-sm max-w-xl">Tell us about your business. We respond within one business day.</p>
         <a href="mailto:bradley@getarclo.com" class="inline-flex items-center gap-1.5 text-ghost text-sm font-sans hover:text-ink transition-colors duration-150 mt-4">

@@ -59,6 +59,18 @@
     .btn-primary:hover { background-color: #16263D; transform: translateY(-1px); }
     .btn-primary:active { transform: translateY(0); }
 
+    /* Section eyebrow — single chevron derived from the Arclo mark. */
+    .eyebrow { display: flex; align-items: center; gap: 0.55rem; }
+    .eyebrow::before {
+      content: '';
+      width: 13px;
+      height: 8px;
+      flex-shrink: 0;
+      background-color: #1B2E4B;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 6L7 2L13 6' fill='none' stroke='black' stroke-width='2' stroke-linejoin='miter'/%3E%3C/svg%3E") no-repeat center / contain;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 6L7 2L13 6' fill='none' stroke='black' stroke-width='2' stroke-linejoin='miter'/%3E%3C/svg%3E") no-repeat center / contain;
+    }
+
     /* Focus-visible — navy ring, keyboard users only */
     a:focus-visible,
     button:focus-visible,
@@ -111,7 +123,7 @@
   <section class="pt-16 border-b border-edge" style="background-color: #EDF5FC;">
     <div class="max-w-5xl mx-auto px-6 pt-20 pb-16">
 
-      <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-8">Case Study</p>
+      <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-8">Case Study</p>
 
       <h1 class="font-display font-bold text-[2rem] sm:text-6xl md:text-7xl leading-[1.12] sm:leading-[1.02] tracking-tightest text-ink max-w-3xl mb-6">
         Cold email, live paid site in under a week, before she left for a trade show.
@@ -240,7 +252,7 @@
   ═══════════════════════════════════════════ -->
   <section class="py-16 bg-white border-b border-edge">
     <div class="max-w-4xl mx-auto px-6">
-      <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">The Results</p>
+      <p class="eyebrow font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">The Results</p>
       <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-6">Delivered, on time.</h2>
 
       <p class="text-ghost text-sm leading-relaxed mb-10">
