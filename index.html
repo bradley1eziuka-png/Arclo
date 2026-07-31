@@ -31,12 +31,13 @@
             sans: ['"Instrument Sans"', 'sans-serif'],
           },
           colors: {
-            'ink':    '#0C0C0B',
-            'canvas': '#F5F5F0',
-            'edge':   '#E2E2DC',
-            'ghost':  '#8C8C85',
-            'navy':   '#1B2E4B',
-            'accent': '#2563EB',
+            'ink':        '#0C0C0B',
+            'canvas':     '#F5F5F0',
+            'edge':       '#E2E2DC',
+            'ghost':      '#8C8C85',
+            'navy':       '#1B2E4B',
+            'navy-deep':  '#16263D',
+            'navy-mist':  '#B4C0D2',
           },
           letterSpacing: {
             'tightest': '-0.04em',
@@ -55,26 +56,37 @@
     .nav-link { transition: opacity 0.18s ease; }
     .nav-link:hover { opacity: 0.5; }
 
+    /* Motion curve — one easing for the whole site */
+    :root { --arclo-ease: cubic-bezier(0.4, 0, 0.2, 1); }
+
     .btn-primary {
-      transition: background-color 0.18s ease, color 0.18s ease;
+      transition: background-color 0.18s var(--arclo-ease), transform 0.18s var(--arclo-ease);
     }
-    .btn-primary:hover { background-color: #2a2a28; }
+    .btn-primary:hover  { background-color: #16263D; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
 
     .btn-outline {
-      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      transition: background-color 0.18s var(--arclo-ease), color 0.18s var(--arclo-ease),
+                  border-color 0.18s var(--arclo-ease), transform 0.18s var(--arclo-ease);
     }
     .btn-outline:hover {
-      background-color: #0C0C0B;
+      background-color: #1B2E4B;
+      border-color: #1B2E4B;
       color: #fff;
+      transform: translateY(-1px);
     }
+    .btn-outline:active { transform: translateY(0); }
 
     /* Work cards */
     .card-live {
-      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+      transition: border-color 0.2s var(--arclo-ease), box-shadow 0.2s var(--arclo-ease),
+                  transform 0.2s var(--arclo-ease);
     }
     .card-live:hover {
-      border-color: #0C0C0B;
-      box-shadow: 0 4px 20px rgba(12, 12, 11, 0.08);
+      border-color: #B4C0D2;
+      transform: translateY(-2px);
+      box-shadow: 0 1px 2px rgba(27, 46, 75, 0.05),
+                  0 8px 24px -4px rgba(27, 46, 75, 0.10);
     }
 
     /* Services */
@@ -85,18 +97,28 @@
 
     /* Inputs */
     input, textarea {
-      transition: border-color 0.18s ease;
+      transition: border-color 0.18s var(--arclo-ease), box-shadow 0.18s var(--arclo-ease);
     }
     input:focus, textarea:focus {
       outline: none;
-      border-color: #0C0C0B;
+      border-color: #1B2E4B;
+      box-shadow: 0 0 0 3px rgba(27, 46, 75, 0.12);
+    }
+
+    /* Focus-visible — navy ring, keyboard users only */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid #1B2E4B;
+      outline-offset: 2px;
+      border-radius: 3px;
     }
 
     /* Submit */
     .btn-submit {
-      transition: background-color 0.18s ease;
+      transition: background-color 0.18s var(--arclo-ease);
     }
-    .btn-submit:hover { background-color: #2a2a28; }
+    .btn-submit:hover { background-color: #16263D; }
 
     /* Visit link */
     .visit-link {
@@ -112,6 +134,16 @@
 
     /* Anchor scroll offset — compensate for fixed 64px header */
     section[id] { scroll-margin-top: 4rem; }
+
+    /* Respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="exaWbZjSzsYsUBbC" data-version="062024"></script>
@@ -177,7 +209,7 @@
 
     <!-- Watermark logo mark -->
     <img src="image.png" alt=""
-         class="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-[340px] pointer-events-none select-none translate-x-8"
+         class="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-[520px] opacity-[0.055] pointer-events-none select-none translate-x-16"
          aria-hidden="true" />
 
     <div class="max-w-5xl mx-auto px-6 pt-20 pb-16 w-full relative">
@@ -218,7 +250,7 @@
       <div class="mb-12">
         <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">The Work</p>
         <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">See how we've helped businesses grow.</h2>
-        <p class="text-ghost text-sm">Every website is built to do one job: turn the people who find you into customers.</p>
+        <p class="text-ghost text-sm max-w-xl">Every website is built to do one job: turn the people who find you into customers.</p>
       </div>
 
       <!-- Desktop: 3-at-a-time carousel -->
@@ -229,7 +261,7 @@
             <!-- Fenixx Technologies -->
             <div class="w-1/3 flex-shrink-0 pr-5">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/Fenixx%20Logo%20Done.png" alt="Fenixx Technologies logo" style="max-height:60px;width:auto;object-fit:contain;" />
                 </div>
@@ -247,7 +279,7 @@
             <!-- Bump to Baby Doula -->
             <div class="w-1/3 flex-shrink-0 pr-5">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/BtB%20log%20Do.png" alt="Bump to Baby Doula logo" style="max-height:60px;width:auto;object-fit:contain;" />
                 </div>
@@ -265,7 +297,7 @@
             <!-- Custom Gaming Consoles -->
             <div class="w-1/3 flex-shrink-0 pr-5">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/Done%20CGC%20logo.png" alt="Custom Gaming Consoles logo" style="max-height:60px;width:auto;object-fit:contain;" class="rounded-[4px]" />
                 </div>
@@ -279,7 +311,7 @@
             <!-- Freeze Dry Solutions -->
             <div class="w-1/3 flex-shrink-0 pr-5">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/Freezedry.png" alt="Freeze Dry Solutions logo" style="max-height:60px;width:auto;object-fit:contain;" />
                 </div>
@@ -296,7 +328,7 @@
             <!-- College Mulch -->
             <div class="w-1/3 flex-shrink-0 pr-5">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/College%20Mulch%20done.png" alt="College Mulch logo" style="max-height:60px;width:auto;object-fit:contain;" />
                 </div>
@@ -315,16 +347,16 @@
         <!-- Desktop controls -->
         <div class="flex items-center justify-between mt-6">
           <button id="dw-prev" aria-label="Previous projects"
-                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <div class="flex items-center gap-2">
-            <button class="dw-dot w-2 h-2 rounded-full bg-[#1B2E4B] transition-opacity duration-150" data-index="0" aria-label="Go to projects 1-3"></button>
-            <button class="dw-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="1" aria-label="Go to projects 2-4"></button>
-            <button class="dw-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="2" aria-label="Go to projects 3-5"></button>
+            <button class="dw-dot w-2 h-2 rounded-full bg-navy transition-opacity duration-150" data-index="0" aria-label="Go to projects 1-3"></button>
+            <button class="dw-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="1" aria-label="Go to projects 2-4"></button>
+            <button class="dw-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="2" aria-label="Go to projects 3-5"></button>
           </div>
           <button id="dw-next" aria-label="Next projects"
-                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
@@ -370,10 +402,17 @@
               dwMoveTo(dwPos > 0 ? dwPos - 1 : 2, true);
             }
 
+            var dwReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
             function resetTimer() {
               clearInterval(dwTimer);
-              dwTimer = setInterval(dwNext, 2500);
+              if (dwReduced) return;
+              dwTimer = setInterval(dwNext, 6000);
             }
+
+            var dwTrack = document.getElementById('dwork-track');
+            dwTrack.addEventListener('mouseenter', function () { clearInterval(dwTimer); });
+            dwTrack.addEventListener('mouseleave', resetTimer);
 
             document.getElementById('dw-prev').addEventListener('click', function () { dwPrev(); resetTimer(); });
             document.getElementById('dw-next').addEventListener('click', function () { dwNext(); resetTimer(); });
@@ -400,7 +439,7 @@
             <!-- Fenixx Technologies -->
             <div class="w-full flex-shrink-0">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/Fenixx%20Logo%20Done.png" alt="Fenixx Technologies logo" style="max-height:60px;width:auto;object-fit:contain;" />
                 </div>
@@ -418,7 +457,7 @@
             <!-- Bump to Baby Doula -->
             <div class="w-full flex-shrink-0">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/BtB%20log%20Do.png" alt="Bump to Baby Doula logo" style="max-height:60px;width:auto;object-fit:contain;" />
                 </div>
@@ -436,7 +475,7 @@
             <!-- Custom Gaming Consoles -->
             <div class="w-full flex-shrink-0">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/Done%20CGC%20logo.png" alt="Custom Gaming Consoles logo" style="max-height:60px;width:auto;object-fit:contain;" class="rounded-[4px]" />
                 </div>
@@ -450,7 +489,7 @@
             <!-- Freeze Dry Solutions -->
             <div class="w-full flex-shrink-0">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/Freezedry.png" alt="Freeze Dry Solutions logo" style="max-height:60px;width:auto;object-fit:contain;" />
                 </div>
@@ -467,7 +506,7 @@
             <!-- College Mulch -->
             <div class="w-full flex-shrink-0">
               <div class="card-live bg-white border border-edge rounded-[4px] p-8 flex flex-col h-[440px]">
-                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-ink px-2.5 py-1 rounded-[2px]">Live</span></div>
+                <div><span class="inline-block text-[10px] font-sans font-semibold uppercase tracking-[0.16em] text-white bg-navy px-2.5 py-1 rounded-[3px]">Live</span></div>
                 <div class="flex items-center mt-4 mb-3" style="height:80px;">
                   <img src="Logos/College%20Mulch%20done.png" alt="College Mulch logo" style="max-height:60px;width:auto;object-fit:contain;" />
                 </div>
@@ -486,18 +525,18 @@
         <!-- Controls -->
         <div class="flex items-center justify-between mt-6">
           <button id="w-prev" aria-label="Previous project"
-                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <div class="flex items-center gap-2">
-            <button class="w-dot w-2 h-2 rounded-full bg-[#1B2E4B] transition-opacity duration-150" data-index="0" aria-label="Go to project 1"></button>
-            <button class="w-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="1" aria-label="Go to project 2"></button>
-            <button class="w-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="2" aria-label="Go to project 3"></button>
-            <button class="w-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="3" aria-label="Go to project 4"></button>
-            <button class="w-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="4" aria-label="Go to project 5"></button>
+            <button class="w-dot w-2 h-2 rounded-full bg-navy transition-opacity duration-150" data-index="0" aria-label="Go to project 1"></button>
+            <button class="w-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="1" aria-label="Go to project 2"></button>
+            <button class="w-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="2" aria-label="Go to project 3"></button>
+            <button class="w-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="3" aria-label="Go to project 4"></button>
+            <button class="w-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="4" aria-label="Go to project 5"></button>
           </div>
           <button id="w-next" aria-label="Next project"
-                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
@@ -526,9 +565,11 @@
                 wSnapTimer = setTimeout(function () { wMoveTo(snapTo, false); }, 320);
               }
             }
+            var wReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             function resetTimer() {
               clearInterval(wTimer);
-              wTimer = setInterval(wNext, 2500);
+              if (wReduced) return;
+              wTimer = setInterval(wNext, 6000);
             }
             document.getElementById('w-prev').addEventListener('click', function () {
               clearTimeout(wSnapTimer);
@@ -563,7 +604,7 @@
         <!-- Photo -->
         <div class="w-full md:w-2/5 flex-shrink-0">
           <img src="Brand%20assets/Bradley.jpeg" alt="Bradley Eziuka, Founder of Arclo"
-               class="w-full object-cover" style="clip-path: inset(12% 0 0 0 round 6px);" />
+               class="w-full object-cover" style="clip-path: inset(12% 0 0 0 round 4px);" />
         </div>
 
         <!-- Text -->
@@ -607,7 +648,7 @@
             <!-- Clone of last slide (Andre) — head, for seamless prev wrap -->
             <div class="w-full flex-shrink-0" aria-hidden="true">
               <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <div class="w-8 h-[2px] bg-navy mb-6"></div>
                 <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8 flex-1">
                   "It was great working with Arclo! There were times when I didn't know how to explain what I wanted on my website, but <strong>they still understood the assignment</strong>. Very timely with everything I asked and also extremely consistent with keeping you in the loop. It helped the process run smoother and it looked <strong>way more credible for customers</strong>. The website <strong>made me and my business look more professional</strong>. I highly recommend their services if you want to get a website designed."
                 </blockquote>
@@ -622,7 +663,7 @@
             <!-- Slide 1: Bill Hayter -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <div class="w-8 h-[2px] bg-navy mb-6"></div>
                 <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8 flex-1">
                   "We are incredibly grateful for the outstanding website Arclo built for our waterjet cutting business. Their hard work and dedication were evident throughout the entire project. They possess an innovative eye for detail, <strong>perfectly capturing our technical precision</strong> in a sleek, modern platform. We highly recommend their <strong>fresh creativity and flawless execution</strong>! We look forward to working with Arclo to <strong>grow this site and reach new customers</strong>."
                 </blockquote>
@@ -637,7 +678,7 @@
             <!-- Slide 2: Tonya Wozniak -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <div class="w-8 h-[2px] bg-navy mb-6"></div>
                 <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8 flex-1">
                   "I spent months chasing <strong>broken links, glitches, and even missed contacts</strong> because something failed behind the scenes. After a free 30-minute consult, Bradley presented a <strong>custom mockup within 2 business days</strong>. He listened to my vision, my concerns, and ran with it. <strong>I no longer need to touch my website</strong>. I just focus on growing my business and spending more time with my clients and family."
                 </blockquote>
@@ -652,7 +693,7 @@
             <!-- Slide 3: Ethan Daugherty -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <div class="w-8 h-[2px] bg-navy mb-6"></div>
                 <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8 flex-1">
                   "Working with Arclo <strong>completely changed the way our business looked to customers</strong>. Before the website, we felt like just another small local service, but Arclo helped make us look organized, professional, and trustworthy online. What stood out the most was <strong>he never lost our vision and personality</strong>. Since launching, <strong>communication with customers has been dramatically easier</strong> and allowed for quicker turnaround and business. Thanks Arclo!"
                 </blockquote>
@@ -667,7 +708,7 @@
             <!-- Slide 4: Andre Lockett -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <div class="w-8 h-[2px] bg-navy mb-6"></div>
                 <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8 flex-1">
                   "It was great working with Arclo! There were times when I didn't know how to explain what I wanted on my website, but <strong>they still understood the assignment</strong>. Very timely with everything I asked and also extremely consistent with keeping you in the loop. It helped the process run smoother and it looked <strong>way more credible for customers</strong>. The website <strong>made me and my business look more professional</strong>. I highly recommend their services if you want to get a website designed."
                 </blockquote>
@@ -682,7 +723,7 @@
             <!-- Clone of first slide (Bill) — tail, for seamless next wrap -->
             <div class="w-full flex-shrink-0" aria-hidden="true">
               <div class="bg-white border border-edge rounded-[4px] p-12 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-6"></div>
+                <div class="w-8 h-[2px] bg-navy mb-6"></div>
                 <blockquote class="font-display font-medium text-2xl leading-[1.35] tracking-tighter text-ink mb-8 flex-1">
                   "We are incredibly grateful for the outstanding website Arclo built for our waterjet cutting business. Their hard work and dedication were evident throughout the entire project. They possess an innovative eye for detail, <strong>perfectly capturing our technical precision</strong> in a sleek, modern platform. We highly recommend their <strong>fresh creativity and flawless execution</strong>! We look forward to working with Arclo to <strong>grow this site and reach new customers</strong>."
                 </blockquote>
@@ -700,11 +741,11 @@
         <!-- Arrows -->
         <div class="flex items-center justify-center gap-4 mt-6">
           <button id="dt-prev" aria-label="Previous testimonial"
-                  class="w-9 h-9 rounded-full border border-ink flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <button id="dt-next" aria-label="Next testimonial"
-                  class="w-9 h-9 rounded-full border border-ink flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
@@ -716,6 +757,7 @@
             // Real slides at positions 1–4; start at position 1
             var dtPos = 1;
             var dtTimer;
+            var dtReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             var TRANSITION = 'transform 0.35s cubic-bezier(0.4,0,0.2,1)';
 
             function dtMoveTo(pos, animate) {
@@ -740,8 +782,13 @@
 
             function resetTimer() {
               clearInterval(dtTimer);
-              dtTimer = setInterval(dtNext, 2500);
+              if (dtReduced) return;
+              dtTimer = setInterval(dtNext, 8000);
             }
+
+            var dtTrack = document.getElementById('dt-track');
+            dtTrack.addEventListener('mouseenter', function () { clearInterval(dtTimer); });
+            dtTrack.addEventListener('mouseleave', resetTimer);
 
             document.getElementById('dt-prev').addEventListener('click', function () { dtPrev(); resetTimer(); });
             document.getElementById('dt-next').addEventListener('click', function () { dtNext(); resetTimer(); });
@@ -760,7 +807,7 @@
             <!-- Bill Hayter -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-7 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-5"></div>
+                <div class="w-8 h-[2px] bg-navy mb-5"></div>
                 <blockquote class="font-display font-medium text-lg leading-[1.4] tracking-tighter text-ink mb-5">
                   "We are incredibly grateful for the outstanding website Arclo built for our waterjet cutting business. Their hard work and dedication were evident throughout the entire project. They possess an innovative eye for detail, <strong>perfectly capturing our technical precision</strong> in a sleek, modern platform. We highly recommend their <strong>fresh creativity and flawless execution</strong>! We look forward to working with Arclo to <strong>grow this site and reach new customers</strong>."
                 </blockquote>
@@ -775,7 +822,7 @@
             <!-- Tonya Wozniak -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-7 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-5"></div>
+                <div class="w-8 h-[2px] bg-navy mb-5"></div>
                 <blockquote class="font-display font-medium text-lg leading-[1.4] tracking-tighter text-ink mb-5">
                   "I spent months chasing <strong>broken links, glitches, and even missed contacts</strong> because something failed behind the scenes. After a free 30-minute consult, Bradley presented a <strong>custom mockup within 2 business days</strong>. He listened to my vision, my concerns, and ran with it. <strong>I no longer need to touch my website</strong>. I just focus on growing my business and spending more time with my clients and family."
                 </blockquote>
@@ -790,7 +837,7 @@
             <!-- Ethan Daugherty -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-7 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-5"></div>
+                <div class="w-8 h-[2px] bg-navy mb-5"></div>
                 <blockquote class="font-display font-medium text-lg leading-[1.4] tracking-tighter text-ink mb-5">
                   "Working with Arclo <strong>completely changed the way our business looked to customers</strong>. Before the website, we felt like just another small local service, but Arclo helped make us look organized, professional, and trustworthy online. What stood out the most was <strong>he never lost our vision and personality</strong>. Since launching, <strong>communication with customers has been dramatically easier</strong> and allowed for quicker turnaround and business. Thanks Arclo!"
                 </blockquote>
@@ -805,7 +852,7 @@
             <!-- Andre Lockett -->
             <div class="w-full flex-shrink-0">
               <div class="bg-white border border-edge rounded-[4px] p-7 flex flex-col">
-                <div class="w-8 h-[2px] bg-ink mb-5"></div>
+                <div class="w-8 h-[2px] bg-navy mb-5"></div>
                 <blockquote class="font-display font-medium text-lg leading-[1.4] tracking-tighter text-ink mb-5">
                   "It was great working with Arclo! There were times when I didn't know how to explain what I wanted on my website, but <strong>they still understood the assignment</strong>. Very timely with everything I asked and also extremely consistent with keeping you in the loop. It helped the process run smoother and it looked <strong>way more credible for customers</strong>. The website <strong>made me and my business look more professional</strong>. I highly recommend their services if you want to get a website designed."
                 </blockquote>
@@ -823,17 +870,17 @@
         <!-- Controls -->
         <div class="flex items-center justify-between mt-6">
           <button id="t-prev" aria-label="Previous testimonial"
-                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <div class="flex items-center gap-2">
-            <button class="t-dot w-2 h-2 rounded-full bg-[#1B2E4B] transition-opacity duration-150" data-index="0" aria-label="Go to testimonial 1"></button>
-            <button class="t-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="1" aria-label="Go to testimonial 2"></button>
-            <button class="t-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="2" aria-label="Go to testimonial 3"></button>
-            <button class="t-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="3" aria-label="Go to testimonial 4"></button>
+            <button class="t-dot w-2 h-2 rounded-full bg-navy transition-opacity duration-150" data-index="0" aria-label="Go to testimonial 1"></button>
+            <button class="t-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="1" aria-label="Go to testimonial 2"></button>
+            <button class="t-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="2" aria-label="Go to testimonial 3"></button>
+            <button class="t-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="3" aria-label="Go to testimonial 4"></button>
           </div>
           <button id="t-next" aria-label="Next testimonial"
-                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
@@ -873,9 +920,9 @@
 
       <div class="mb-12">
         <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">Our Services</p>
-        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Your website is speaking for your business every day. Make sure it's saying the right thing.</h2>
-        <p class="text-ghost text-sm mb-3">More than just good design. Websites built to help your business grow, stand out, and win online.</p>
-        <p class="text-ink text-sm font-sans font-medium">No templates, no outsourcing, no disappearing after launch, every project is built and supported directly by the person you hire.</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2 max-w-3xl">Your website is speaking for your business every day. Make sure it's saying the right thing.</h2>
+        <p class="text-ghost text-sm max-w-xl mb-3">More than just good design. Websites built to help your business grow, stand out, and win online.</p>
+        <p class="text-ink text-sm font-sans font-medium max-w-xl">No templates, no outsourcing, no disappearing after launch, every project is built and supported directly by the person you hire.</p>
       </div>
 
       <!-- Desktop: connected three-column grid -->
@@ -967,16 +1014,16 @@
         <!-- Controls -->
         <div class="flex items-center justify-between mt-6">
           <button id="svc-prev" aria-label="Previous service"
-                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <div class="flex items-center gap-2">
-            <button class="svc-dot w-2 h-2 rounded-full bg-[#1B2E4B] transition-opacity duration-150" data-index="0" aria-label="Web Design"></button>
-            <button class="svc-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="1" aria-label="SEO"></button>
-            <button class="svc-dot w-2 h-2 rounded-full bg-[#1B2E4B] opacity-30 transition-opacity duration-150" data-index="2" aria-label="Maintenance"></button>
+            <button class="svc-dot w-2 h-2 rounded-full bg-navy transition-opacity duration-150" data-index="0" aria-label="Web Design"></button>
+            <button class="svc-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="1" aria-label="SEO"></button>
+            <button class="svc-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-150" data-index="2" aria-label="Maintenance"></button>
           </div>
           <button id="svc-next" aria-label="Next service"
-                  class="w-9 h-9 rounded-full border border-[#1B2E4B] flex items-center justify-center text-[#1B2E4B] hover:bg-[#1B2E4B] hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
@@ -1017,7 +1064,7 @@
 
       <div class="mb-12">
         <p class="font-sans text-xs font-medium uppercase tracking-[0.18em] text-ghost mb-3">How It Works</p>
-        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">From first call to live site, here's what to expect.</h2>
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2 max-w-3xl">From first call to live site, here's what to expect.</h2>
       </div>
 
       <div class="hidden md:grid md:grid-cols-3 border border-edge rounded-[4px] overflow-hidden">
@@ -1061,16 +1108,16 @@
         </div>
         <div class="flex items-center justify-center gap-4 mt-5">
           <button id="hiw-prev" aria-label="Previous step"
-                  class="w-9 h-9 rounded-full border border-ink flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <div id="hiw-dots" class="flex items-center gap-2">
-            <button class="hiw-dot w-2 h-2 rounded-full bg-ink transition-opacity duration-200" aria-label="Step 1"></button>
-            <button class="hiw-dot w-2 h-2 rounded-full bg-ink opacity-30 transition-opacity duration-200" aria-label="Step 2"></button>
-            <button class="hiw-dot w-2 h-2 rounded-full bg-ink opacity-30 transition-opacity duration-200" aria-label="Step 3"></button>
+            <button class="hiw-dot w-2 h-2 rounded-full bg-navy transition-opacity duration-200" aria-label="Step 1"></button>
+            <button class="hiw-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-200" aria-label="Step 2"></button>
+            <button class="hiw-dot w-2 h-2 rounded-full bg-navy opacity-30 transition-opacity duration-200" aria-label="Step 3"></button>
           </div>
           <button id="hiw-next" aria-label="Next step"
-                  class="w-9 h-9 rounded-full border border-ink flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors duration-150">
+                  class="w-9 h-9 rounded-full border border-navy flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors duration-150">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
@@ -1155,18 +1202,6 @@
           </div>
         </details>
 
-        <!--
-          TODO FOR BRADLEY: Confirm answer before publishing this question.
-          <details class="group bg-white">
-            <summary class="flex items-center justify-between px-6 py-5 select-none">
-              <span class="font-display font-semibold text-base tracking-tighter text-ink pr-6">Do you take on rush projects or work outside Michigan?</span>
-              <svg class="faq-chevron flex-shrink-0 w-4 h-4 text-ghost" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </summary>
-            <div class="px-6 pb-6">
-              <p class="text-ghost text-sm leading-relaxed">[Answer pending, confirm policy before publishing]</p>
-            </div>
-          </details>
-        -->
 
       </div>
     </div>
@@ -1180,8 +1215,8 @@
     <div class="max-w-5xl mx-auto px-6">
 
       <div class="mb-10">
-        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2">Let's make your first impression impossible to forget.</h2>
-        <p class="text-ghost text-sm">Tell us about your business. We respond within one business day.</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tightest mb-2 max-w-3xl">Let's make your first impression impossible to forget.</h2>
+        <p class="text-ghost text-sm max-w-xl">Tell us about your business. We respond within one business day.</p>
         <a href="mailto:bradley@getarclo.com" class="inline-flex items-center gap-1.5 text-ghost text-sm font-sans hover:text-ink transition-colors duration-150 mt-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
@@ -1208,7 +1243,7 @@
               name="name"
               required
               placeholder="Your name"
-              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-edge"
+              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-ghost"
             />
           </div>
 
@@ -1222,7 +1257,7 @@
               name="email"
               required
               placeholder="you@company.com"
-              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-edge"
+              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-ghost"
             />
           </div>
 
@@ -1235,7 +1270,7 @@
               id="phone"
               name="phone"
               placeholder="Your phone number"
-              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-edge"
+              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-ghost"
             />
           </div>
 
@@ -1249,7 +1284,7 @@
               required
               rows="5"
               placeholder="Tell us about your business and what you need."
-              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-edge resize-none"
+              class="w-full border border-edge rounded-[3px] px-4 py-3 text-sm font-sans text-ink bg-white placeholder:text-ghost resize-none"
             ></textarea>
           </div>
 
