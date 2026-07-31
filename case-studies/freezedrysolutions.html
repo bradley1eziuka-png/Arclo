@@ -35,8 +35,9 @@
             'canvas': '#F4F5F7',
             'edge':   '#DFE2E8',
             'ghost':  '#7E8695',
-            'navy':   '#1B2E4B',
-            'accent': '#2563EB',
+            'navy':       '#1B2E4B',
+            'navy-deep':  '#16263D',
+            'navy-mist':  '#B4C0D2',
           },
           letterSpacing: {
             'tightest': '-0.04em',
@@ -54,8 +55,28 @@
     .nav-link { transition: opacity 0.18s ease; }
     .nav-link:hover { opacity: 0.5; }
 
-    .btn-primary { transition: background-color 0.18s ease, color 0.18s ease; }
-    .btn-primary:hover { background-color: #2a2a28; }
+    .btn-primary { transition: background-color 0.18s cubic-bezier(0.4,0,0.2,1), color 0.18s cubic-bezier(0.4,0,0.2,1), transform 0.18s cubic-bezier(0.4,0,0.2,1); }
+    .btn-primary:hover { background-color: #16263D; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    /* Focus-visible — navy ring, keyboard users only */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid #1B2E4B;
+      outline-offset: 2px;
+      border-radius: 3px;
+    }
+
+    /* Respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="exaWbZjSzsYsUBbC" data-version="062024"></script>
@@ -71,7 +92,7 @@
     <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
 
       <a href="../" class="flex items-center gap-2.5 nav-link" aria-label="Arclo home">
-        <img src="../image.png" alt="Arclo logo" class="h-16 w-auto" />
+        <img src="../arclo-mark.png" alt="Arclo logo" class="h-8 w-auto" />
         <span class="font-display font-semibold text-[1.05rem] tracking-tightest">Arclo</span>
       </a>
 
@@ -270,7 +291,7 @@
   <footer class="border-t border-edge py-8">
     <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
       <a href="../" class="flex items-center gap-2.5 nav-link" aria-label="Arclo home">
-        <img src="../image.png" alt="Arclo logo" class="h-7 w-auto opacity-70" />
+        <img src="../arclo-mark.png" alt="Arclo logo" class="h-6 w-auto opacity-60" />
         <span class="font-display font-semibold text-sm tracking-tightest">Arclo</span>
       </a>
       <div class="flex flex-col sm:items-end gap-1">
